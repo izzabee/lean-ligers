@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= "Welcome, " + current_user.first_name if current_user %>
 
-<%= yield %>
+	<%= yield %>
 
 </body>
 </html>

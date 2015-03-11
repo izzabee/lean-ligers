@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 	before_action :require_current_user, only: :destroy
 
 	def new
