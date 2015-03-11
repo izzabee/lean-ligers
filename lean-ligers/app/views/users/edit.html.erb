@@ -1,6 +1,20 @@
 <h1>Editing User</h1>
 
-<%= render 'form' %>
+<%= form_for @user do |f| %>
+  <%= f.text_field :first_name, value: @user.first_name %>
+  <br/>
+  <%= f.text_field :last_name, value:  @user.last_name %>
+  <br/>
+   <%= f.text_field :email, value:  @user.email %>
+  <br/>
+  <%= f.label :industry, 'Select a Desired Industry' %><br>
+	<%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']] %>
+  <br/>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <br/>
+
+  <%= f.submit "Submit" %>
+<% end %>
 
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
