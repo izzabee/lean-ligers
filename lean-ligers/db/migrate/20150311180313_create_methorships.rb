@@ -1,6 +1,6 @@
 class CreateMethorships < ActiveRecord::Migration
   def change
-    create_table :methorships do |t|
+    create_table :mentorships do |t|
     	t.integer :mentor_id
     	t.integer :mentee_id
 

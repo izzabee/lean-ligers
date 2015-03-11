@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :password_digest, null: false
     	t.string :session_token
     	t.string :industry, null: false
-    	t.boolean :mentor
+    	t.boolean :mentor, default: false
 
       t.timestamps null: false
     end
