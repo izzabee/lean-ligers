@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_secure_password
 	has_many :mentorships
+  has_many :messages
 
 	validates :first_name, :last_name, :email, presence: true
 
