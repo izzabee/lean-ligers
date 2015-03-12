@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311180313) do
+ActiveRecord::Schema.define(version: 20150312183323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(version: 20150311180313) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "subject",                    null: false
+    t.string   "content",                    null: false
+    t.integer  "mentor_id",                  null: false
+    t.integer  "mentee_id",                  null: false
+    t.boolean  "read",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "messages", ["mentee_id"], name: "index_messages_on_mentee_id", using: :btree
+  add_index "messages", ["mentor_id"], name: "index_messages_on_mentor_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",                      null: false
@@ -34,5 +47,7 @@ ActiveRecord::Schema.define(version: 20150311180313) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
