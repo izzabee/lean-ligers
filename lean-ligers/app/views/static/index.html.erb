@@ -1,17 +1,47 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Lean Ligers Home Page</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<%= image_tag("Liger.jpg", alt: "Liger") %>
 
-	<h1>Welcome to the Lean Ligers Page!</h1>
-	<h3>We are a General Assembly Cross Immersive Labs team.</h3>
-	<p>Project coming soon...</p>
+<section class="home">
+  <div class="jumbotron">
+    <div class="container">
 
-</body>
-</html>
+      <%= render '/shared/header' %>
+
+      <img src="assets/logo.png" alt="Logo" class="logo">
+      <h1>CareerCupid</h1>
+      <h2>Deserunt dolore consectetur mollit in Lorem.</h2>
+
+
+      <form class="form-inline quick-search">
+        <div class="form-group">
+          <label><h4>I'm looking for a career in </h4></label><select type="career" class="form-control" id="industryExample1" placeholder="Tech">
+            <option value="product">Product Management</option>
+            <option value="design">UI/UX Design</option>
+            <option value="dev">Web Development</option>
+          </select>
+          <button type="submit" class="btn">Go</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container info">
+    <div class="row">
+      <div class="col-sm-4">
+        <h1 class="info-icon"><i class="fa fa-suitcase fa-2x"></i><h1>
+        <h2>Career Hub</h2>
+        <p>Proident ea veniam eiusmod laborum pariatur dolor.</p>
+      </div>
+      <div class="col-sm-4">
+        <h1 class="info-icon"><i class="fa fa-newspaper-o fa-2x"></i><h1>
+        <h2>Job Stories</h2>
+        <p>Proident ea veniam eiusmod laborum pariatur dolor.</p>
+      </div>
+      <div class="col-sm-4">
+        <h1 class="info-icon"><i class="fa fa-users fa-2x"></i><h1>
+        <h2>Mentors</h2>
+        <p>Proident ea veniam eiusmod laborum pariatur dolor.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
