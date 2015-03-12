@@ -71,7 +71,7 @@ class UsersController < ApplicationController
 
   # Only these parameters can be passed through the form 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :industry, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :mentor, :industry, :password, :password_confirmation)
   end
 
   def password_params

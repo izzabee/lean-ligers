@@ -10,6 +10,11 @@
   <%= f.label :industry, 'Select a Desired Industry' %><br>
 	<%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']] %>
   <br/>
+  <%= f.label :mentor, 'Are you signing up as a mentor?' %>
+  <br/>
+  Yes <%= f.radio_button :mentor, 'True' %>
+  No <%= f.radio_button :mentor, 'False', :checked => true %>
+  <br/>
   <%= f.password_field :password, placeholder: "Password" %>
   <br/>
   <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
@@ -18,4 +23,4 @@
   <%= f.submit "Sign up" %>
 <% end %>
 
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', new_session_url %>

@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   def logout!
-    current_user.update(session_token: nil)
+    current_user[:session_token] = nil
+    current_user.save!
     session[:session_token] = make_token
   end
 

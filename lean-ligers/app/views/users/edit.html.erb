@@ -8,7 +8,7 @@
    <%= f.text_field :email, value:  @user.email %>
   <br/>
   <%= f.label :industry, 'Select a Desired Industry' %><br>
-	<%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']] %>
+	<%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']], :selected => @user.industry %>
   <br/>
   <%= f.password_field :password, placeholder: "Password" %>
   <br/>
