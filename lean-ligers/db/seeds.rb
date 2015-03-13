@@ -16,6 +16,7 @@ izabella = Mentee.create({
 	email: 'izabella@me.com',
 	password: 'password',
 	industry: 'Web Development',
+	interests: 'painting'
 	})
 
 alvin = Mentee.create({
@@ -24,6 +25,7 @@ alvin = Mentee.create({
 	email: 'alvin@me.com',
 	password: 'password',
 	industry: 'Web Development',
+	interests: 'hockey'
 	})
 
 pablo = Mentee.create({
@@ -32,6 +34,7 @@ pablo = Mentee.create({
 	email: 'pablo@me.com',
 	password: 'password',
 	industry: 'Project Management',
+	interests: 'running'
 	})
 
 dan = Mentee.create({
@@ -40,6 +43,7 @@ dan = Mentee.create({
 	email: 'dan@me.com',
 	password: 'password',
 	industry: 'Project Management',
+	interests: 'music'
 	})
 
 brice = Mentee.create({
@@ -48,6 +52,7 @@ brice = Mentee.create({
 	email: 'bric@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
+	interests: 'gaming'
 	})
 
 kevin = Mentee.create({
@@ -56,6 +61,7 @@ kevin = Mentee.create({
 	email: 'kevin@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
+	interests: 'astronomy'
 	})
 
 matt =  Mentor.create({
@@ -64,6 +70,8 @@ matt =  Mentor.create({
 	email: 'matt@me.com',
 	password: 'password',
 	industry: 'Web Development',
+	interests: 'fishing',
+	advice: 'Be one with the code.'
 	})
 
 colleen = Mentor.create({
@@ -72,6 +80,8 @@ colleen = Mentor.create({
 	email: 'colleen@me.com',
 	password: 'password',
 	industry: 'Project Management',
+	interests: 'knitting',
+	advice: 'A project manager is not a manger, rather a facilitater.'
 	})
 
 marco = Mentor.create({
@@ -80,11 +90,13 @@ marco = Mentor.create({
 	email: 'marco@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
+	interests: 'hiking',
+	advice: 'We translate research into design.'
 	})
 
 # message1 = Message.create({
-# 	subject: 'Interested Developer',
-# 	content: 'Hello, I am a market analyst who is looking to become a front-end developer and I would love to ask you some questions regarding your experience. Thanks!',
-# 	mentor_id: ,
-# 	mentee_id:  
-# 	})
+	# subject: 'Interested Developer',
+	# content: 'Hello, I am a market analyst who is looking to become a front-end developer and I would love to ask you some questions regarding your experience. Thanks!',
+	# mentor_id: ,
+	# mentee_id:  
+	# })

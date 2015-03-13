@@ -8,6 +8,8 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :password_digest, null: false
     	t.string :session_token
     	t.string :industry, null: false
+      t.string :interests, null: false
+      t.string :advice
 
       t.timestamps null: false
     end

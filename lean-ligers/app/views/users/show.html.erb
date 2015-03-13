@@ -1,10 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
-<p>Role: </p>
-<p>Seeking:  </p>
-<p>Industry: <%= @user.industry %> </p>
+<p>Seeking: <%= @user.type == 'Mentee' ? 'A mentor in ' : 'A mentee interested in ' %> <%= @user.industry %> </p>
 <p>Email: <%= @user.email %> </p>
+<p>Outside of work, I enjoy <%= @user.interests %> </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= @user %>

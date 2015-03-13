@@ -23,13 +23,22 @@ class User < ActiveRecord::Base
   end
 
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      redirect_to new_session_url
+    if @user.type == 'Mentor'
+      @mentor.new(user_params)
+      if @mentor.save
+        redirect_to new_session_url
+      else
+        render :new
+      end
     else
-      render :new
+      @mentee.new(user_params)
+      if @mentee.save
+        redirect_to new_session_url
+      else
+        render :new
+      end
     end
+
   end
 
   def edit
@@ -51,7 +60,7 @@ class User < ActiveRecord::Base
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :industry, :mentor, :password, :password_confirmation)
+    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :password, :password_confirmation)
   end
 
   def password_params

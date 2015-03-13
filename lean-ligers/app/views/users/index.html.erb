@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
-
+<h1>All Users</h1>
 <table>
   <thead>
     <tr>
@@ -16,15 +15,16 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
+        <td><%= link_to user.first_name, user %></td>
         <td><%= user.email %></td>
+        <td><%= user.type %></td>
         <td><%= user.industry %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<%= link_to 'View All Mentors', mentors_path %>
+<br>
+<%= link_to 'View All Mentees', mentees_path %>

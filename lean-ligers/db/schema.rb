@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20150312183323) do
     t.string   "password_digest", null: false
     t.string   "session_token"
     t.string   "industry",        null: false
+    t.string   "interests",       null: false
+    t.string   "advice"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
