@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+    @users = User.all
   end
 
   # GET /messages/1/edit
@@ -25,7 +26,8 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
+    @user = current_user
+    
     respond_to do |format|
       if @message.save
         format.html { redirect_to @message, notice: 'Message was successfully created.' }

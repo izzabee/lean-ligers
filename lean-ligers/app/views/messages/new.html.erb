@@ -1,5 +1,15 @@
 <h1>New Message</h1>
 
-<%= render 'form' %>
+<%= form_for(@message) do |form| %>
+	<%= form.label :mentor_id, 'Choose a mentor' %><br>
+	<%= form.select :mentor_id, @mentors.collect {|mentor| [mentor.first_name, mentor.id] } %>
+	<br>
+	<%= form.text_field :subject, :placeholder => 'Subject' %>
+	<br>
+	<%= form.text_area :content, :placeholder => 'Message' %>
+	<br>
+	<%= render form %>
+<% end %>
+
 
 <%= link_to 'Back', messages_path %>

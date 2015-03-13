@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
 	has_secure_password
 	has_many :mentorships
-  has_many :messages
+  has_many :messages, dependent: :destroy
+  scope :mentors, -> { where(type:'Mentor') }
+  scope :mentees, -> { where(type:'Mentee') }
 
 	validates :first_name, :last_name, :email, presence: true
 

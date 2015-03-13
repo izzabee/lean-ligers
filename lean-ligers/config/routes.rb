@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+	resources :users
+	resources :mentors, controller: 'users', type: 'Mentor'
+	resources :mentees, controller: 'users', type: 'Mentee'
   resources :messages
-
-  resources :users
   resource :session, only: [:new, :create, :destroy]
 
   get '/login', to: 'sessions#new'
@@ -11,5 +12,6 @@ Rails.application.routes.draw do
   get '/users/current', to: 'users#current'
 
   root 'static#index'
+
   
 end

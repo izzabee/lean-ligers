@@ -37,15 +37,17 @@ ActiveRecord::Schema.define(version: 20150312183323) do
   add_index "messages", ["mentor_id"], name: "index_messages_on_mentor_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",                      null: false
-    t.string   "last_name",                       null: false
-    t.string   "email",                           null: false
-    t.string   "password_digest",                 null: false
+    t.string   "type"
+    t.string   "first_name",      null: false
+    t.string   "last_name",       null: false
+    t.string   "email",           null: false
+    t.string   "password_digest", null: false
     t.string   "session_token"
-    t.string   "industry",                        null: false
-    t.boolean  "mentor",          default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.string   "industry",        null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end
