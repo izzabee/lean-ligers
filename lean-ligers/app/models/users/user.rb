@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	has_secure_password
 	has_many :mentorships
+  has_many :mentors, through: :mentorships
+  has_many :mentees, through: :mentorships
   has_many :messages, dependent: :destroy
   scope :mentors, -> { where(type:'Mentor') }
   scope :mentees, -> { where(type:'Mentee') }
