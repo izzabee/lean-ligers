@@ -1,6 +1,6 @@
 <p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be,  "<%= @user.advice %>"</p>
 
-<form action="<%= @user.id %>/mentorships" method="POST">
+<form id="mentorship-request" action="<%= @user.id %>/mentorships" method="POST">
 	<input type="hidden" value="<%= @user.id %>">
 	<input type="submit" value="Request Mentorship">
 </form>

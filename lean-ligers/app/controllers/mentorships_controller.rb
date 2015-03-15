@@ -4,7 +4,7 @@ class MentorshipsController < ApplicationController
 		@mentorship = current_user.mentorships.build(mentor_id: params[:mentor_id])
 		respond_to do |format|
       if @mentorship.save
-        format.html { redirect_to mentor_path(@mentor), notice: 'Mentorship request sent.' }
+        format.html { redirect_to mentor_path(params[:mentor_id]), notice: 'Mentorship request sent.' }
         format.json { render :show, status: :created, location: @mentorship }
       else
         format.html { render :new }
