@@ -1,8 +1,10 @@
-<p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be  "<%= @user.advice %>"</p>
+<p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be,  "<%= @user.advice %>"</p>
 
-<%= @user.id %>
+<form action="<%= @user.id %>/mentorships" method="POST">
+	<input type="hidden" value="<%= @user.id %>">
+	<input type="submit" value="Request Mentorship">
+</form>
 
-<%= link_to 'Request Mentorship', mentorships_path, :method => :post %> 
 <br>
 <%= link_to 'Back', mentors_path %>
 
