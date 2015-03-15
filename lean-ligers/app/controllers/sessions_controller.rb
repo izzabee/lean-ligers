@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
 
 	def new
 		@user = User.new
+    @user.type = params[:type]
 	end
 
 	def create

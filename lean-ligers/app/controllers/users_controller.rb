@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:show, :edit, :update, :destroy, :create]
 
   # GET /users
   # GET /users.json
@@ -98,13 +98,13 @@ class UsersController < ApplicationController
 
   private
   
-  def set_user(id)
-    @user = Mentee.find(id) || Mentor.find(id)
+  def set_user
+    @user = Mentee.find(params[:id]) || Mentor.find(params[:id])
   end
 
   # Only these parameters can be passed through the form 
   def user_params
-    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :password, :password_confirmation)
+    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :interests, :advice, :password, :password_confirmation)
   end
 
   def password_params

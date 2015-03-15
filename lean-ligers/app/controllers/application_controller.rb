@@ -1,15 +1,11 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
-
   helper_method :current_user
 
   def current_user
     return nil unless session[:session_token]
-    # @current_user ||= Mentee.find_by(session_token: session[:session_token]) ||
-    unless @current_user = Mentee.find_by(session_token: session[:session_token])
-      @current_user = Mentor.find_by(session_token: session[:session_token])
-    end
+    @current_user ||= Mentee.find_by(session_token: session[:session_token]) || Mentor.find_by(session_token: session[:session_token])
   end
 
   private

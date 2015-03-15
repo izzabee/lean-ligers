@@ -5,8 +5,8 @@ class Message < ActiveRecord::Base
 	belongs_to :mentee, class: Mentee # foreign_key: :mentee_id
 	belongs_to :mentor, class: Mentor # foreign_key: :mentor_id
 
-	# def read(mentor)
-	# 	message = Message.find_by(mentor_id: @mentor.id)
+	# def self.read
+	# 	message = Message.find_by(mentor_id: @mentor.id, mentee_id: @mentee.id)
 	# 	message.update(read: true)
 	# end
 end

@@ -1,7 +1,7 @@
 class MentorshipsController < ApplicationController
-	def create
-		@mentorship = current_user.mentorship.build(:mentee_id => params[:mentee_id])
 
+	def create
+		@mentorship = current_user.mentorships.build(mentor_id: params[:mentor_id])
 		respond_to do |format|
       if @mentorship.save
         format.html { redirect_to @mentorship, notice: 'Mentorship request sent.' }
@@ -14,13 +14,24 @@ class MentorshipsController < ApplicationController
 	end
 
 	def destroy
-		@mentorship = current_user.mentorship.find(params[:id])
+		@mentorship = current_user.mentorships.find(params[:id])
 		@mentorship.destroy
 
 		respond_to do |format|
       format.html { redirect_to root_path, notice: 'Mentorship was successfully removed.' }
       format.json { head :no_content }
     end
+	end
+
+	def update
+		@mentorship = Mentorship.find(params[:id])
+		@mentorship.update(confirmed: true)
+	end
+
+	private
+
+	def mentorship_params
+		params.require(:mentorship).permit(:mentor_id)
 	end
 
 end

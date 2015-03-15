@@ -6,4 +6,8 @@
 <p>Email: <%= @user.email %> </p>
 <p>Outside of work, I enjoy <%= @user.interests %> </p>
 
-<%= render 'users/mentors/mentor' %>
+<% if @user.type == 'Mentor' %>
+	<%= render 'users/mentors/mentor' %>
+<% else %>
+	<%= render 'users/mentees/mentee' %>
+<% end %>

@@ -1,6 +1,8 @@
+<p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be  "<%= @user.advice %>"</p>
 
-<%= link_to 'Request Mentorship' %>
+<%= @user.id %>
 
-<%= link_to 'Edit', edit_mentor_path(@mentor) %> |
+<%= link_to 'Request Mentorship', mentorships_path, :method => :post %> 
+<br>
 <%= link_to 'Back', mentors_path %>
 
