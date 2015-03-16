@@ -4,10 +4,10 @@
 <div class="current mentorships">
 	<% if current_user.mentors.any? %>
 		<% current_user.mentors.each do |mentor| %>
-			<p>Mentor: <%= mentor.first_name %></p>
-			<p>Industry <%= mentor.industry %></p>
+			<p>Mentor: <%= mentor.mentor.first_name %></p>
+			<p>Industry <%= mentor.mentor.industry %></p>
 			<p>Mentor since <%= mentor.created_at.strftime('%a %B %d %Y') %></p>
-			<%= link_to 'Message mentor', new_message_path %>
+			<button data-method="compose">Message <%= mentor.mentor.first_name %></button>
 		<% end %>
 	<% else %>
 		<p>You have no current mentors</p>
