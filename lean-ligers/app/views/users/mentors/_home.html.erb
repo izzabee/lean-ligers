@@ -1,0 +1,38 @@
+<h2><%= current_user.type %>, experienced in <%= current_user.industry %></h2>
+
+<h3>Currently Mentoring</h3>
+<div class="current mentorships">
+	<% if current_user.mentees.any? %>
+		<% current_user.mentees.each do |mentee| %>
+			<p><%= mentee.mentee.first_name %></p>
+			<p>Mentee since <%= mentee.created_at.strftime('%B %d, %Y') %></p>
+			<button data-method="compose">Message <%= mentee.mentee.first_name %></button>
+		<% end %>
+	<% else %>
+		<p>You have no current mentees</p>
+	<% end %>
+</div>
+
+<h3>Pending Mentorship Requests</h3>
+<div class="pending mentorships">
+	<% if current_user.pending_requests.any? %>
+		<% current_user.pending_requests.each do |mentee| %>
+			<p>Mentee: <%= mentee.mentee.first_name %></p>
+			<p>Enjoys: <%= mentee.mentee.interests %></p>
+			<p>Request sent at <%= mentee.created_at.strftime('%l:%M%P %B %d, %Y') %></p>
+			<form action="mentors/<%=current_user.id%>/mentorships/<%=mentee.id%>" method="POST">
+				<input type="hidden" value="true" name="mentorship[confirmed]">
+				<input type="hidden" value="PATCH" name="_method">
+				<input type="submit" value="Accept Mentorship Request">
+			</form>
+			<form action="mentors/<%=current_user.id%>/mentorships/<%=mentee.id%>" method="POST">
+				<input type="hidden" value="DELETE" name="_method">
+				<input type="submit" value="Reject Mentorship Request">
+			</form>
+		<% end %>
+	<% else %>
+		<p>You currently have no pending mentorship requests.</p>
+	<% end %>
+</div>
+
+<%= link_to 'Back to all mentees', mentees_path %>

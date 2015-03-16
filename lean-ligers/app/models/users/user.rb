@@ -10,6 +10,18 @@ class User < ActiveRecord::Base
     respond_to do |format|
       format.json { render json: {
           id: current_user.id,
+          type: current_user.type,
+          email: current_user.email,
+          first_name: current_user.first_name
+        }
+      }
+    end
+  end
+
+  def homepage
+    respond_to do |format|
+      format.json { render json: {
+          id: current_user.id,
           email: current_user.email,
           first_name: current_user.first_name
         }

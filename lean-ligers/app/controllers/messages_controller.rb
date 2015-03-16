@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = current_user.messages
   end
 
   # GET /messages/1
@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
-    @users = User.all
+    @mentors = Mentor.all
   end
 
   # GET /messages/1/edit
@@ -72,5 +72,13 @@ class MessagesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
       params[:message]
+    end
+
+    def user_is_current_user
+      user = Mentor.find(params[:mentor_id]) || Mentee.find(params[:mentee_id])
+
+      unless user && current_user == user
+        redirect_to user_messages_path(current_user)
+      end
     end
 end

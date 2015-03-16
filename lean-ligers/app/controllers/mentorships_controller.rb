@@ -18,7 +18,7 @@ class MentorshipsController < ApplicationController
 		@mentorship.destroy
 
 		respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Mentorship was successfully removed.' }
+      format.html { redirect_to homepage_path, notice: 'Mentorship was successfully removed.' }
       format.json { head :no_content }
     end
 	end
@@ -26,6 +26,11 @@ class MentorshipsController < ApplicationController
 	def update
 		@mentorship = Mentorship.find(params[:id])
 		@mentorship.update(confirmed: true)
+
+		respond_to do |format|
+      format.html { redirect_to homepage_path, notice: 'Mentorship was successfully created.' }
+      format.json { head :no_content }
+    end
 	end
 
 	private

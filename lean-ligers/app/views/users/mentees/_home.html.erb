@@ -1,0 +1,30 @@
+<h2><%= current_user.type %>, interested in <%= current_user.industry %></h2>
+
+<h3>Current Mentors</h3>
+<div class="current mentorships">
+	<% if current_user.mentors.any? %>
+		<% current_user.mentors.each do |mentor| %>
+			<p>Mentor: <%= mentor.first_name %></p>
+			<p>Industry <%= mentor.industry %></p>
+			<p>Mentor since <%= mentor.created_at.strftime('%a %B %d %Y') %></p>
+			<%= link_to 'Message mentor', new_message_path %>
+		<% end %>
+	<% else %>
+		<p>You have no current mentors</p>
+	<% end %>
+</div>
+
+<h3>Pending Mentorship Requests</h3>
+<div class="pending mentorships">
+	<% if current_user.pending_requests.any? %>
+		<% current_user.pending_requests.each do |mentor| %>
+			<p>Mentor: <%= mentor.mentor.first_name %></p>
+			<p>Industry <%= mentor.mentor.industry %></p>
+			<p>Request sent at <%= mentor.created_at.strftime('%l:%M%P %B %d, %Y') %></p>
+		<% end %>
+	<% else %>
+		<p>You currently have no pending mentorship requests.</p>
+	<% end %>
+</div>
+
+<%= link_to 'Back to all mentors', mentors_path %>

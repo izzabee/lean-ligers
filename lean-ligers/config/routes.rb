@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :mentees, controller: 'users', type: 'Mentee' 
   
   resources :mentors, controller: 'users', type: 'Mentor' do 
-    resources :mentorships, only: [:new, :create, :destroy]
+    resources :mentorships, only: [:new, :create, :destroy, :update]
   end
 
   resource :session, only: [:new, :create, :destroy]
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   get '/users/current', to: 'users#current'
+  get '/homepage', to: 'users#homepage'
 
   root 'static#index'
 
