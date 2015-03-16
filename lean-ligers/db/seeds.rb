@@ -98,5 +98,5 @@ marco = Mentor.create({
 	# subject: 'Interested Developer',
 	# content: 'Hello, I am a market analyst who is looking to become a front-end developer and I would love to ask you some questions regarding your experience. Thanks!',
 	# mentor_id: ,
-	# mentee_id:  
+	# mentee_id:
 	# })
