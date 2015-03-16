@@ -15,3 +15,23 @@
 //= require bootstrap.min
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("DOMContentLoaded", function() {
+
+  var mentorCheck = document.getElementById("user_type_mentor");
+  var menteeCheck = document.getElementById("user_type_mentee");
+  var advice = document.getElementById('user_advice');
+
+  advice.style.display = "none";
+  mentorCheck.addEventListener("click", function(){
+    advice.style.display = "block";
+  });
+  menteeCheck.addEventListener("click", function(){
+    advice.style.display = "none";
+  });
+
+
+
+
+
+});
