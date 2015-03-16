@@ -8,6 +8,7 @@
 			<p>Industry <%= mentor.mentor.industry %></p>
 			<p>Mentor since <%= mentor.created_at.strftime('%a %B %d %Y') %></p>
 			<button data-method="compose">Message <%= mentor.mentor.first_name %></button>
+
 		<% end %>
 	<% else %>
 		<p>You have no current mentors</p>

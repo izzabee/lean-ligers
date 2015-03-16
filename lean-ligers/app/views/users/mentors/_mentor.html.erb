@@ -1,9 +1,16 @@
 <p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be,  "<%= @user.advice %>"</p>
 
-<form id="mentorship-request" action="<%= @user.id %>/mentorships" method="POST">
-	<input type="hidden" value="<%= @user.id %>">
-	<input type="submit" value="Request Mentorship">
-</form>
+<!-- When you come back to this, do an if-else-end which renders one of two buttons... if the request already exists, a greyed-out-button which says "request pending...", otherwise, the button below... -->
+
+<% if @user.mentorships.where(mentee_id: current_user.id).exists? %>
+	<button class="pending mentorship-request <%= @user.id %> pending" disabled="disabled" style="background-color:gray;">
+		Request Pending
+	</button>
+<% else %>
+	<button id="<%= @user.id %>" class="available mentorship-request <%= @user.id %> exists">
+		Request Mentorship
+	</button>
+<% end %>
 
 <br>
 <%= link_to 'Back', mentors_path %>

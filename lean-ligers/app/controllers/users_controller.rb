@@ -27,6 +27,19 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    # klass = params[:user][:type].constantize
+    # klass.new(user_params)
+    #   respond_to do |format|
+    #     if klass.save
+    #       login!(klass)
+    #       format.html { redirect_to homepage_path, notice: 'Your account was successfully created.' }
+    #       format.json { render :show, status: :created, location: @mentor }
+    #     else
+    #       format.html { render :new }
+    #       format.json { render json: @mentor.errors, status: :unprocessable_entity }
+    #     end
+    #   end
+
     if params[:user][:type] == 'Mentor'
       @mentor = Mentor.new(user_params)
       respond_to do |format|

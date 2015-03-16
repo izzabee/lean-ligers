@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= current_user ? current_user.first_name : (link_to 'Log In', login_path) %>
+	<%= current_user ? (link_to current_user.first_name, homepage_path) : (link_to 'Log In', login_path) %>
 
 	<%= yield %>
 
