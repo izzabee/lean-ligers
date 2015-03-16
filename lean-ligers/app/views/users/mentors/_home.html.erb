@@ -1,21 +1,33 @@
 <h2><%= current_user.type %>, experienced in <%= current_user.industry %></h2>
+<%= link_to 'Edit Profile', edit_mentor_path(current_user) %>
 
 <h3>Currently Mentoring</h3>
 <div class="current mentorships">
 	<% if current_user.mentees.any? %>
 		<% current_user.mentees.each do |mentee| %>
 			<p><%= mentee.mentee.first_name %></p>
+			<p>he/she enjoys <%= mentee.mentee.interests %></p>
 			<p>Mentee since <%= mentee.created_at.strftime('%B %d, %Y') %></p>
-			<button data-method="compose" class="get-message">Message <%= mentee.mentee.first_name %></button>
-			 
-			<div class="message-form">
-				<form id="compose" class="clearfix">
-				  <div class="close-window">&times;</div>
-				  <input type="text" name="subject" placeholder="Subject">
-				  <textarea name="content" placeholder="Body"></textarea>
-				  <div id="send-message">Send</div>
-				</form>
+			<div id="inbox">
+				<h4>Conversation with <%= mentee.mentee.first_name %></h4>
+				<div class="conversation">
+					<div class="subject"></div>
+					<div class="body"></div>
+				</div>
 			</div>
+
+			<button data-method="compose" class="get-message">Message <%= mentee.mentee.first_name %></button>
+			
+			<form class="compose">
+			  <div class="close-window">&times;</div>
+			  <input type="hidden" name="mentee_id" value="<%= mentee.mentee.id %>">
+			  <input type="hidden" name="mentor_id" value="<%= current_user.id %>">
+			  <input type="text" name="subject" placeholder="Subject">
+			  <textarea name="content" placeholder="Body"></textarea>
+			  <button id="send-message">Send</button>
+			</form>
+
+			<hr>
 
 		<% end %>
 	<% else %>
@@ -29,7 +41,7 @@
 		<% current_user.pending_requests.each do |mentee| %>
 			<p>Mentee: <%= mentee.mentee.first_name %></p>
 			<p>Enjoys: <%= mentee.mentee.interests %></p>
-			<p>Request sent at <%= mentee.created_at.strftime('%l:%M%P %B %d, %Y') %></p>
+			<p>Request sent at <%= mentee.created_at.strftime('%l:%M%P on %B %d, %Y') %></p>
 			<form action="mentors/<%=current_user.id%>/mentorships/<%=mentee.id%>" method="POST">
 				<input type="hidden" value="true" name="mentorship[confirmed]">
 				<input type="hidden" value="PATCH" name="_method">
