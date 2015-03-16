@@ -4,9 +4,8 @@
   <div class="jumbotron">
     <div class="container">
 
-      <%= render '/shared/header' %>
+      <%= render 'header' %>
 
-      <img src="assets/logo.png" alt="Logo" class="logo">
       <h1>CareerCupid</h1>
       <h2>Deserunt dolore consectetur mollit in Lorem.</h2>
 
@@ -23,25 +22,26 @@
       </form>
     </div>
   </div>
-
-  <div class="container info">
+</section>
+<section class="info">
+  <div class="container">
     <div class="row">
-      <div class="col-sm-4">
-        <h1 class="info-icon"><i class="fa fa-suitcase fa-2x"></i><h1>
-        <h2>Career Hub</h2>
-        <p>Proident ea veniam eiusmod laborum pariatur dolor.</p>
-      </div>
-      <div class="col-sm-4">
-        <h1 class="info-icon"><i class="fa fa-newspaper-o fa-2x"></i><h1>
-        <h2>Job Stories</h2>
-        <p>Proident ea veniam eiusmod laborum pariatur dolor.</p>
-      </div>
-      <div class="col-sm-4">
-        <h1 class="info-icon"><i class="fa fa-users fa-2x"></i><h1>
-        <h2>Mentors</h2>
-        <p>Proident ea veniam eiusmod laborum pariatur dolor.</p>
-      </div>
+      <h1>New Mentors</h1>
+      <% @mentors.each do |mentor| %>
+        <div class="col-sm-4">
+          <a href="<%= mentor_path(mentor.id) %>" class="info-icon"><i class="fa fa-user fa-2x"></i><a>
+          <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
+          <h3><%= mentor.industry %></h3>
+        </div>
+      <% end %>
+
     </div>
   </div>
-
 </section>
+
+<div class="modal fade newUser" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <h1 class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></h1>
+      <%= render 'signup' %>
+  </div>
+</div>
