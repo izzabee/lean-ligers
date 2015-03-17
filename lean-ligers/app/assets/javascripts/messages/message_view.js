@@ -5,6 +5,5 @@ var MessageView = function(model){
 
 MessageView.prototype.render = function(){
   this.$el.text(this.model.name);
-
   return this;
 }

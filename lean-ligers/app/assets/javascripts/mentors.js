@@ -13,9 +13,6 @@ $(document).ready(function(){
 			success: function(data){
 				console.log(data);
 				console.log('this working? maybe???');
-			},
-			error: function(data){
-				alert('Oops something went wrong');
 			}
 		})
 	})

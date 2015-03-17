@@ -1,4 +1,5 @@
 <h2><%= current_user.type %>, interested in <%= current_user.industry %></h2>
+<%= link_to 'Edit Profile', edit_mentee_path(current_user) %>
 
 <h3>Current Mentors</h3>
 <div class="current mentorships">
@@ -7,7 +8,27 @@
 			<p>Mentor: <%= mentor.mentor.first_name %></p>
 			<p>Industry <%= mentor.mentor.industry %></p>
 			<p>Mentor since <%= mentor.created_at.strftime('%a %B %d %Y') %></p>
-			<button data-method="compose">Message <%= mentor.mentor.first_name %></button>
+			
+			<div id="inbox">
+				<h4>Conversation with <%= mentor.mentor.first_name %></h4>
+				<div class="conversation">
+					<div class="subject"></div>
+					<div class="body"></div>
+				</div>
+			</div>
+
+			<button data-method="compose" class="get-message">Message <%= mentor.mentor.first_name %></button>
+
+			<form class="compose">
+			  <div class="close-window">&times;</div>
+			  <input type="hidden" name="mentee_id" value="<%= mentor.mentor.id %>">
+			  <input type="hidden" name="mentor_id" value="<%= current_user.id %>">
+			  <input type="text" name="subject" placeholder="Subject">
+			  <textarea name="content" placeholder="Body"></textarea>
+			  <button id="send-message">Send</button>
+			</form>
+
+			<hr>
 
 		<% end %>
 	<% else %>
@@ -21,7 +42,7 @@
 		<% current_user.pending_requests.each do |mentor| %>
 			<p>Mentor: <%= mentor.mentor.first_name %></p>
 			<p>Industry <%= mentor.mentor.industry %></p>
-			<p>Request sent at <%= mentor.created_at.strftime('%l:%M%P %B %d, %Y') %></p>
+			<p>Request sent at <%= mentor.created_at.strftime('%l:%M%P on %B %d, %Y') %></p>
 		<% end %>
 	<% else %>
 		<p>You currently have no pending mentorship requests.</p>

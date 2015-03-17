@@ -6,7 +6,6 @@ var MessageCollection = function(){
 MessageCollection.prototype.add = function(message){
   // Add message to models array
   this.models.push(message);
-  // Shows changes
   $(this).trigger('change');
 }
 
@@ -26,4 +25,4 @@ MessageCollection.prototype.fetch = function(){
       })
     }
   })
-}
+};

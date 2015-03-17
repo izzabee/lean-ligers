@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   get '/login', to: 'sessions#new'
-  get 'logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
   get '/signup', to: 'users#new'
   get '/users/current', to: 'users#current'
   get '/homepage', to: 'users#homepage'

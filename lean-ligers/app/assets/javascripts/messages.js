@@ -1,4 +1,4 @@
-// console.log('message.js loaded')
+console.log('message.js loaded')
 
 // $(function(){
 //   messageCollection = new MessageCollection();
@@ -15,6 +15,10 @@ $(document).ready(function(){
 	var $form = $('.compose');
 	var $closeForm = $('.close-window');
 	var $sendMessage = $('#send-message');
+	var $inbox = $('#inbox');
+	var $div = $('.conversation');
+	var $subject = $('.subject');
+	var $body = $('.body');
 	var formElements;
 	var formData;
 	
@@ -22,9 +26,9 @@ $(document).ready(function(){
 
 	// this shows the message form
 	$getMessage.on('click', function(e){
-		$(this).next().show();
+		$(this).next().slideDown();
 		$closeForm.on('click', function(e){
-			$form.hide();
+			$form.slideUp();
 		});
 
 		// this gets the message from the form
@@ -47,34 +51,27 @@ $(document).ready(function(){
 				dataType: 'json',
 				data: formData,
 				success: function(formData){
+					$form.slideUp();
 					$form[0].reset();
-					$form.hide();
 				}
 			})
 		})
 	});
 
+	// get past messages
 	var populateMessages = function(){
-		var $conversation = $('.conversation')
-		var $subject = $('.subject');
-		var $body = $('.body');
-
 		$.ajax({
 			url: '/messages',
-			method: 'GET',
+			type: 'GET',
 			dataType: 'json',
-			success: function(returnedData){
-				 $subject.text(returnedData.subject);
-				 $body.text(returnedData.content);
+			success: function(receivedData){
+				// var data = JSON.parse(receivedData);
+				console.log(JSON.stringify(receivedData));
 			}
 		})
-	}
-
-
-
+	};
 
 	populateMessages();
-
 
 
 
