@@ -2,8 +2,8 @@
   <div class="modal-dialog modal-lg">
     <h1 class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></h1>
     <div class="container">
-      <form class="form-horizontal col-sm-4 col-sm-offset-4">
-        <%= form_for @user do |f| %>
+      <div class="form-horizontal col-sm-4 col-sm-offset-4">
+        <%= form_for user do |f| %>
         <div class="form-group">
           <h2>I am signing up as a </h2>
           Mentee <%= f.radio_button :type, 'Mentee' , :checked => true, class: 'radio-label' %>
@@ -28,7 +28,7 @@
           <%= f.submit "Sign up", class: "btn btn-default" %>
           <% end %>
         </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
