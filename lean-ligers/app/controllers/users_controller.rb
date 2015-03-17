@@ -60,8 +60,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    binding.pry
     klass = params[:user][:type].constantize
-
     respond_to do |format|
       if klass.update(user_params)
         format.html { redirect_to homepage_path, notice: 'Edits saved.' }

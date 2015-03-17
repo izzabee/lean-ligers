@@ -1,6 +1,6 @@
 <h1>Editing User</h1>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, method: :patch do |f| %>
   <%= f.label :first_name, 'First Name' %><br>
   <%= f.text_field :first_name, value: current_user.first_name %>
   <br/>
