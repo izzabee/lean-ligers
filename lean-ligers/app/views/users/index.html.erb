@@ -4,7 +4,16 @@
 <section class="mentor-directory">
   <div class="container">
 
-    <div class="row"><h1>Meet Our Mentors</h1></div>
+    <div class="row">
+      <h1>Meet Our Mentors</h1>
+      <form class="form-horizontal col-sm-6 col-sm-offset-3">
+          <select class="form-control industry-select">
+            <option>Product Management</option>
+            <option>User Experience Design</option>
+            <option>Web Development</option>
+          </select>
+      </form>
+    </div>
 
     <% @users.each do |user| %>
       <% if user.industry == 'Web Development' %>
@@ -14,7 +23,7 @@
           <h3><%= user.industry %></h3>
         </div>
       <% end %>
-      <% if user.industry == 'Project Management' %>
+      <% if user.industry == 'Product Management' %>
         <div class="mentor-card col-sm-4 mentor-pm">
           <h1 class="mentor-icon"><i class="fa fa-user fa-2x"></i><h1>
           <h2><%= link_to user.first_name, user %></h2>

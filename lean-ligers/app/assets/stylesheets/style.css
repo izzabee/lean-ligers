@@ -40,6 +40,10 @@ a:hover {
 	text-decoration: none;
 }
 
+.italic {
+	font-style: italic;
+}
+
 button {
 	background: #DC143C;
 	color: #fff;
@@ -180,6 +184,10 @@ textarea {
 	text-align: center;
 }
 
+.industry-select {
+	margin-top: 24px;
+}
+
 .mentor-icon {
 	display: block;
 	max-width: 200px;
@@ -292,4 +300,14 @@ textarea {
 .quote i {
 	display: block;
 	padding: 12px 0;
+}
+
+/******* Dashboard *******/
+#user-homepage {
+	padding-top: 100px;
+	text-align: left;
+}
+
+.pending-mentors, .current-mentors {
+	background: #fff;
 }
