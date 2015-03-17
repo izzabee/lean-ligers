@@ -7,11 +7,10 @@
 		Request Pending
 	</button>
 <% else %>
-	<button id="<%= @user.id %>" class="available mentorship-request <%= @user.id %> exists">
+	<button id="<%= @user.id %>" class="available mentorship-request <%= @user.id %> exists btn btn-default">
 		Request Mentorship
 	</button>
 <% end %>
 
 <br>
 <%= link_to 'Back', mentors_path %>
-

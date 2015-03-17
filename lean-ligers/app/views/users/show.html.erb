@@ -1,13 +1,21 @@
-<p id="notice"><%= notice %></p>
+<%= render '/static/header' %>
 
-<h3> <%= @user.type %> </h3>
-<p><%= @user.first_name %> <%= @user.last_name %></p>
-<p>Seeking: <%= @user.type == 'Mentee' ? 'A mentor in ' : 'A mentee interested in ' %> <%= @user.industry %> </p>
-<p>Email: <%= @user.email %> </p>
-<p>Outside of work, I enjoy <%= @user.interests %> </p>
+<section>
+	<div class="container">
 
-<% if @user.type == 'Mentor' %>
-	<%= render 'users/mentors/mentor' %>
-<% else %>
-	<%= render 'users/mentees/mentee' %>
-<% end %>
+	<p id="notice"><%= notice %></p>
+
+	<h3> <%= @user.type %> </h3>
+	<p><%= @user.first_name %> <%= @user.last_name %></p>
+	<p>Seeking: <%= @user.type == 'Mentee' ? 'A mentor in ' : 'A mentee interested in ' %> <%= @user.industry %> </p>
+	<p>Email: <%= @user.email %> </p>
+	<p>Outside of work, I enjoy <%= @user.interests %> </p>
+
+	<% if @user.type == 'Mentor' %>
+		<%= render 'users/mentors/mentor' %>
+	<% else %>
+		<%= render 'users/mentees/mentee' %>
+	<% end %>
+
+	</div>
+</section>
