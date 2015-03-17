@@ -33,7 +33,7 @@ pablo = Mentee.create({
 	last_name: 'Orlandini',
 	email: 'pablo@me.com',
 	password: 'password',
-	industry: 'Project Management',
+	industry: 'Product Management',
 	interests: 'running'
 	})
 
@@ -42,7 +42,7 @@ dan = Mentee.create({
 	last_name: 'Snider',
 	email: 'dan@me.com',
 	password: 'password',
-	industry: 'Project Management',
+	industry: 'Product Management',
 	interests: 'music'
 	})
 
@@ -79,7 +79,7 @@ colleen = Mentor.create({
 	last_name: 'Lynch',
 	email: 'colleen@me.com',
 	password: 'password',
-	industry: 'Project Management',
+	industry: 'Product Management',
 	interests: 'knitting',
 	advice: 'A project manager is not a manger, rather a facilitater.'
 	})
