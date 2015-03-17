@@ -33,5 +33,11 @@ module LeanLigers
     config.autoload_paths += %W(#{config.root}/app/views/users)
     config.autoload_paths += %W(#{config.root}/app/assets/javascripts/messages)
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.configure do |env|
+      if Rails.env.development? || Rails.env.test?
+        env.cache = ActiveSupport::Cache.lookup_store(:memory_store)
+      end
+    end
   end
 end

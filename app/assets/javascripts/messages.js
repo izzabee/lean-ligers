@@ -9,7 +9,7 @@ console.log('message.js loaded')
   
 // })
 
-$(document).ready(function(){
+$(function(){
 	console.log('DOM ready');
 	var $getMessage = $('.get-message');
 	var $form = $('.compose');
@@ -34,6 +34,9 @@ $(document).ready(function(){
 		// this gets the message from the form
 		$sendMessage.on('click', function(e){
 			e.preventDefault();
+
+			console.log("i've been clicked!")
+
 			formElements = $form[0].elements;
 			formData = {
 				message: {
@@ -50,7 +53,8 @@ $(document).ready(function(){
 				type: 'POST',
 				dataType: 'json',
 				data: formData,
-				success: function(formData){
+				success: function(returnData){
+					console.log(returnData);
 					$form.slideUp($form[0].reset());
 				}
 			})
