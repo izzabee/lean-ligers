@@ -1,16 +1,13 @@
-<p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be,  "<%= @user.advice %>"</p>
-
+<!-- <p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be,  "<%= @user.advice %>"</p> -->
 
 <% if @user.mentorships.where(mentee_id: current_user.id).exists? %>
 	<button class="pending mentorship-request <%= @user.id %> pending" disabled="disabled" style="background-color:gray;">
 		Request Pending
 	</button>
 <% else %>
-	<button id="<%= @user.id %>" class="available mentorship-request <%= @user.id %> exists">
+	<button id="<%= @user.id %>" class="available mentorship-request <%= @user.id %> exists btn btn-default mentorship-request">
 		Request Mentorship
 	</button>
 <% end %>
 
-<br>
-<%= link_to 'Back', mentors_path %>
-
+<!-- <%= link_to 'Back', mentors_path %> -->

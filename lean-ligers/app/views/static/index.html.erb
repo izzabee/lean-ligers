@@ -4,7 +4,7 @@
   <div class="jumbotron">
     <div class="container">
 
-      <%= render 'header' %>
+      <%= render partial: 'header' %>
 
       <h1>CareerCupid</h1>
       <h2>Deserunt dolore consectetur mollit in Lorem.</h2>
@@ -27,8 +27,25 @@
   <div class="container">
     <div class="row">
       <h1>New Mentors</h1>
-      <% @mentors.each do |mentor| %>
-        <div class="col-sm-4">
+
+      <% @mentors.where(id: 8).each do |mentor| %>
+        <div class="col-sm-4 mentor-pm">
+          <a href="<%= mentor_path(mentor.id) %>" class="info-icon"><i class="fa fa-user fa-2x"></i><a>
+          <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
+          <h3><%= mentor.industry %></h3>
+        </div>
+      <% end %>
+
+      <% @mentors.where(id: 9).each do |mentor| %>
+        <div class="col-sm-4 mentor-ux">
+          <a href="<%= mentor_path(mentor.id) %>" class="info-icon"><i class="fa fa-user fa-2x"></i><a>
+          <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
+          <h3><%= mentor.industry %></h3>
+        </div>
+      <% end %>
+
+      <% @mentors.where(id: 7).each do |mentor| %>
+        <div class="col-sm-4 mentor-web">
           <a href="<%= mentor_path(mentor.id) %>" class="info-icon"><i class="fa fa-user fa-2x"></i><a>
           <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
           <h3><%= mentor.industry %></h3>
@@ -39,4 +56,4 @@
   </div>
 </section>
 
-<%= render 'signup' %>
+<%= render partial: 'signup', locals:{user: @user} %>

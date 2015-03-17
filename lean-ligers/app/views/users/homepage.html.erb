@@ -2,10 +2,16 @@
 
 <p id="notice"><%= notice %></p>
 
-<section>
+<!-- <div class="jumbotron cover-photo">
+	<div class="container">
+		<img src="https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg" class="absolute-center">
+	</div>
+</div> -->
+
+<section class="user-homepage">
 <div class="container">
-	<div class="col-sm-6">
-	<h1><%= current_user.first_name %></h1>
+
+	<h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
 	<h2>I enjoy <%= current_user.interests %>...</h2>
 
 	<% if current_user.type == 'Mentor' %>
@@ -13,6 +19,5 @@
 	<% else %>
 		<%= render 'users/mentees/home' %>
 	<% end %>
-	</div>
 </div>
 </section>

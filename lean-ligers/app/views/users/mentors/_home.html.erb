@@ -8,7 +8,7 @@
 			<p><%= mentee.mentee.first_name %></p>
 			<p>he/she enjoys <%= mentee.mentee.interests %></p>
 			<p>Mentee since <%= mentee.created_at.strftime('%B %d, %Y') %></p>
-			
+
 			<div id="inbox">
 				<h4>Conversation with <%= mentee.mentee.first_name %></h4>
 				<div class="conversation">
@@ -18,7 +18,7 @@
 			</div>
 
 			<button data-method="compose" class="get-message">Message <%= mentee.mentee.first_name %></button>
-			
+
 			<form class="compose">
 			  <div class="close-window">&times;</div>
 			  <input type="hidden" name="mentee_id" value="<%= mentee.mentee.id %>">
