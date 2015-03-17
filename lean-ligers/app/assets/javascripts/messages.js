@@ -65,8 +65,8 @@ $(document).ready(function(){
 			type: 'GET',
 			dataType: 'json',
 			success: function(receivedData){
-				// var data = JSON.parse(receivedData);
-				console.log(JSON.stringify(receivedData));
+				$div.append(receivedData[0])
+				console.log(receivedData);
 			}
 		})
 	};

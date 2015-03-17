@@ -9,4 +9,5 @@ class Message < ActiveRecord::Base
 	# 	message = Message.find_by(mentor_id: @mentor.id, mentee_id: @mentee.id)
 	# 	message.update(read: true)
 	# end
+
 end

@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = current_user.messages
+    @messages = Message.where('mentor_id = ? OR mentee_id = ?', current_user.id, current_user.id).order(:created_at);
   end
 
   # GET /messages/1
