@@ -16,9 +16,8 @@ $(function(){
 	var $closeForm = $('.close-window');
 	var $sendMessage = $('#send-message');
 	var $inbox = $('#inbox');
-	var $div = $('.conversation');
-	var $subject = $('.subject');
-	var $body = $('.body');
+	var $ul = $('.conversation');
+	var $li = $('<li class="msg-body"></li>');
 	var formElements;
 	var formData;
 	
@@ -30,36 +29,37 @@ $(function(){
 		$closeForm.on('click', function(e){
 			$form.slideUp();
 		});
+	});
 
-		// this gets the message from the form
-		$sendMessage.on('click', function(e){
-			e.preventDefault();
+	// this gets the message from the form
+	$sendMessage.on('click', function(e){
+		e.preventDefault();
 
-			console.log("i've been clicked!")
+		console.log("i've been clicked!")
 
-			formElements = $form[0].elements;
-			formData = {
-				message: {
-					mentee_id: formElements.mentee_id.value,
-					mentor_id: formElements.mentor_id.value,
-					subject: formElements.subject.value,
-					content: formElements.content.value
-				}
-			};
+		formElements = $form[0].elements;
+		formData = {
+			message: {
+				mentee_id: formElements.mentee_id.value,
+				mentor_id: formElements.mentor_id.value,
+				subject: formElements.subject.value,
+				content: formElements.content.value
+			}
+		};
 
-			// and this sends it to server
-			$.ajax({
-				url: '/messages',
-				type: 'POST',
-				dataType: 'json',
-				data: formData,
-				success: function(returnData){
-					console.log(returnData);
-					$form.slideUp($form[0].reset());
-					var sent = new Message(returnData);
-					$div.append(sent);
-				}
-			})
+		// and this sends it to server
+		$.ajax({
+			url: '/messages',
+			type: 'POST',
+			dataType: 'json',
+			data: formData,
+			success: function(returnData){
+				$form.slideUp($form[0].reset());
+				var sent = new Message(returnData);
+				var $li = $('<li class="msg-body"></li>');
+				renderMessage(sent, $li);
+				$ul.append($li);
+			}
 		})
 	});
 
@@ -70,23 +70,29 @@ $(function(){
 			type: 'GET',
 			dataType: 'json',
 			success: function(receivedData){
-				var newMessage = new Message(receivedData);
-				console.log(newMessage);
+				console.log(receivedData);
+				receivedData.forEach(function(message){
+					renderMessage(message, $li);
+					$ul.append($li);
+				})
 			}
 		})
 	};
 
-	var renderInbox = function (messages) {
-		$div = $('.conversation');
+	var renderMessage = function (message, li) {
+		subject = message.subject;
+		content = message.content;
+		mentee_id = message.mentee_id;
+		mentor_id = message.mentor_id;
+		var $h4 = $('<h4>');
+		var $ptag = $('<p>');
+		$h4.text(subject);
+		$ptag.text(content);
 
-		$(messages).each(function(index,message){
-			var newMessage = new Message(receivedData);
-			$div.append(newMessage);
-		})
+		li.append($h4).append($ptag);
 	}
 
 	populateMessages();
-	renderInbox();
 
 
 });
