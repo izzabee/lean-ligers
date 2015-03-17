@@ -56,6 +56,8 @@ $(function(){
 				success: function(returnData){
 					console.log(returnData);
 					$form.slideUp($form[0].reset());
+					var sent = new Message(returnData);
+					$div.append(sent);
 				}
 			})
 		})
@@ -68,14 +70,19 @@ $(function(){
 			type: 'GET',
 			dataType: 'json',
 			success: function(receivedData){
-				var newMessage = new Message (receivedData[0]);
+				var newMessage = new Message(receivedData);
 				console.log(newMessage);
 			}
 		})
 	};
 
 	var renderInbox = function (messages) {
+		$div = $('.conversation');
 
+		$(messages).each(function(index,message){
+			var newMessage = new Message(receivedData);
+			$div.append(newMessage);
+		})
 	}
 
 	populateMessages();
