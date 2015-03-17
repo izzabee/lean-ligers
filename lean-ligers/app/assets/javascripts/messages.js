@@ -1,4 +1,13 @@
-console.log('message.js loaded')
+// console.log('message.js loaded')
+
+// $(function(){
+//   messageCollection = new MessageCollection();
+//   messageCollectionView = new MessageCollectionView(messageCollection);
+
+//   // On page load, get all the clowns from the database
+//   messageCollection.fetch();
+  
+// })
 
 $(document).ready(function(){
 	console.log('DOM ready');

@@ -1,6 +1,5 @@
 <p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be,  "<%= @user.advice %>"</p>
 
-<!-- When you come back to this, do an if-else-end which renders one of two buttons... if the request already exists, a greyed-out-button which says "request pending...", otherwise, the button below... -->
 
 <% if @user.mentorships.where(mentee_id: current_user.id).exists? %>
 	<button class="pending mentorship-request <%= @user.id %> pending" disabled="disabled" style="background-color:gray;">
