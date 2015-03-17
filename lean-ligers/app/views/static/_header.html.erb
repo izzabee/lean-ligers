@@ -6,30 +6,27 @@
        <img alt="CareerCupid" src="assets/logo.png" class="logo">
       </a>
       <ul class="nav navbar-nav navbar-left">
-          <li><a href="#">Dashboard</a></li>
+          <li><a href="/homepage">Dashboard</a></li>
           <li><a href="/mentors">Mentors</a></li>
           <li><a href="#">Browse Careers</a></li>
         </ul>
    </div>
    <div class="navbar-form navbar-right">
-           <% if current_user %>
-             <%= "Welcome, " + current_user.first_name  %>
-             <%= link_to "Log Out", logout_path, class: "btn btn-default" %>
-           <% else %>
-           <%= form_for @user, as: :session, url: session_url do |f| %>
-             <div class="form-group">
-              <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
-              <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
-              <%= f.submit "Log in", class: 'btn btn-default' %>
-            <% end %>
-             </div>
-             <div class="form-group">
-             <%= link_to 'Sign Up', new_user_path, class: 'btn btn-default', 'data-toggle'=>'modal', 'data-target'=> '.newUser' %>
-           <% end %>
-         </div>
+      <% if current_user %>
+          <%= "Welcome, " %><%= link_to current_user.first_name, homepage_path  %>
+          <%= link_to "Log Out", logout_path, class: "btn btn-default" %>
+      <% else %>
+      <div class="form-group">
+        <%= form_for @user, as: :session, url: session_url do |f| %>
+          <%= f.text_field :email, placeholder: "Email", class: 'form-control' %>
+          <%= f.password_field :password, placeholder: "Password", class: 'form-control' %>
+          <%= f.submit "Log in", class: 'btn btn-default' %>
+        <% end %>
+      </div>
+      <div class="form-group">
+        <%= link_to 'Sign Up', new_user_path, class: 'btn btn-default', 'data-toggle'=>'modal', 'data-target'=> '.newUser' %>
+        <% end %>
+      </div>
      </div>
-
-
   </div>
- </div>
 </nav>

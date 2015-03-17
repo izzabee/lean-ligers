@@ -1,10 +1,18 @@
+<%= render '/static/header' %>
+
 <p id="notice"><%= notice %></p>
 
-<h1><%= current_user.first_name %></h1>
-<h2>I enjoy <%= current_user.interests %>...</h2>
+<section>
+<div class="container">
+	<div class="col-sm-6">
+	<h1><%= current_user.first_name %></h1>
+	<h2>I enjoy <%= current_user.interests %>...</h2>
 
-<% if current_user.type == 'Mentor' %>
-	<%= render 'users/mentors/home' %>
-<% else %>
-	<%= render 'users/mentees/home' %>
-<% end %>
+	<% if current_user.type == 'Mentor' %>
+		<%= render 'users/mentors/home' %>
+	<% else %>
+		<%= render 'users/mentees/home' %>
+	<% end %>
+	</div>
+</div>
+</section>

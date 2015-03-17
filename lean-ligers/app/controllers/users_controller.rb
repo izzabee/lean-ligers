@@ -28,19 +28,6 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    # klass = params[:user][:type].constantize
-    # klass.new(user_params)
-    #   respond_to do |format|
-    #     if klass.save
-    #       login!(klass)
-    #       format.html { redirect_to homepage_path, notice: 'Your account was successfully created.' }
-    #       format.json { render :show, status: :created, location: @user }
-    #     else
-    #       format.html { render :new }
-    #       format.json { render json: @user.errors, status: :unprocessable_entity }
-    #     end
-    #   end
-
     if params[:user][:type] == 'Mentor'
       @mentor = Mentor.new(user_params)
       respond_to do |format|
@@ -66,7 +53,7 @@ class UsersController < ApplicationController
         end
       end
     else
-      render :text => 'Oops something went wrong! Please try again.' 
+      render :text => 'Oops something went wrong! Please try again.'
     end
   end
 
@@ -99,12 +86,12 @@ class UsersController < ApplicationController
   end
 
   private
-  
+
   def set_user
     @user = Mentee.find(params[:id]) || Mentor.find(params[:id])
   end
 
-  # Only these parameters can be passed through the form 
+  # Only these parameters can be passed through the form
   def user_params
     params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :interests, :advice, :password, :password_confirmation)
   end
