@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user = User.new
     @user.type = params[:type]
   end
 
@@ -59,28 +60,16 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    if @mentee
-      respond_to do |format|
-        if @mentee.update(user_params)
-          format.html { redirect_to @mentee, notice: 'Mentee was successfully updated.' }
-          format.json { render :show, status: :ok, location: @mentee }
-        else
-          format.html { render :edit }
-          format.json { render json: @mentee.errors, status: :unprocessable_entity }
-        end
+    klass = params[:user][:type].constantize
+
+    respond_to do |format|
+      if klass.update(user_params)
+        format.html { redirect_to homepage_path, notice: 'Edits saved.' }
+        format.json { render :show, status: :ok, location: @mentee }
+      else
+        format.html { render :edit }
+        format.json { render json: @mentee.errors, status: :unprocessable_entity }
       end
-    elsif @mentor
-      respond_to do |format|
-        if @mentor.update(user_params)
-          format.html { redirect_to @mentor, notice: 'Mentee was successfully updated.' }
-          format.json { render :show, status: :ok, location: @mentor }
-        else
-          format.html { render :edit }
-          format.json { render json: @mentor.errors, status: :unprocessable_entity }
-        end
-      end
-    else
-      render :text => 'Oops something went wrong! Please try again.'
     end
   end
 

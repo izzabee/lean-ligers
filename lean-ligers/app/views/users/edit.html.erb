@@ -1,20 +1,26 @@
 <h1>Editing User</h1>
 
 <%= form_for @user do |f| %>
-  <%= f.text_field :first_name, value: @user.first_name %>
+  <%= f.label :first_name, 'First Name' %><br>
+  <%= f.text_field :first_name, value: current_user.first_name %>
   <br/>
-  <%= f.text_field :last_name, value:  @user.last_name %>
+  <%= f.label :last_name, 'Last Name' %><br>
+  <%= f.text_field :last_name, value:  current_user.last_name %>
   <br/>
-   <%= f.text_field :email, value:  @user.email %>
+  <%= f.label :email, 'Email Address' %><br>
+   <%= f.text_field :email, value:  current_user.email %>
   <br/>
-  <%= f.label :industry, 'Select a Desired Industry' %><br>
-	<%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']], :selected => @user.industry %>
+  <%= f.label :industry, 'Industry' %><br>
+	<%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']], :selected => current_user.industry %>
   <br/>
+  <%= f.label :interests, 'Interests' %><br>
+  <%= f.text_field :interests, value: current_user.interests %>
+  <br>
+  <%= f.label :password, 'Password' %><br>
   <%= f.password_field :password, placeholder: "Password" %>
   <br/>
 
-  <%= f.submit "Submit" %>
+  <%= f.submit "Save Changes" %>
 <% end %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Back', homepage_path %>
