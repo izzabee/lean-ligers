@@ -1,5 +1,3 @@
-<%= render '/static/header' %>
-
 <p id="notice"><%= notice %></p>
 <section class="mentor-directory">
   <div class="container">
@@ -18,21 +16,21 @@
     <% @users.each do |user| %>
       <% if user.industry == 'Web Development' %>
         <div class="mentor-card col-sm-4 mentor-web">
-          <h1 class="mentor-icon"><i class="fa fa-user fa-2x"></i><h1>
+          <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
         </div>
       <% end %>
       <% if user.industry == 'Product Management' %>
         <div class="mentor-card col-sm-4 mentor-pm">
-          <h1 class="mentor-icon"><i class="fa fa-user fa-2x"></i><h1>
+          <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
         </div>
       <% end %>
       <% if user.industry == 'User Experience Design' %>
         <div class="mentor-card col-sm-4 mentor-ux">
-          <h1 class="mentor-icon"><i class="fa fa-user fa-2x"></i><h1>
+          <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
         </div>
