@@ -9,6 +9,7 @@
 Mentor.destroy_all
 Mentee.destroy_all
 Message.destroy_all
+Question.destroy_all
 
 izabella = Mentee.create({
 	first_name: 'Izabella',
@@ -16,7 +17,7 @@ izabella = Mentee.create({
 	email: 'izabella@me.com',
 	password: 'password',
 	industry: 'Web Development',
-	interests: 'painting'
+	fun_fact: 'I speak English, Dutch and Italian'
 	})
 
 alvin = Mentee.create({
@@ -25,7 +26,7 @@ alvin = Mentee.create({
 	email: 'alvin@me.com',
 	password: 'password',
 	industry: 'Web Development',
-	interests: 'hockey'
+	fun_fact: 'I am a chess master'
 	})
 
 pablo = Mentee.create({
@@ -34,7 +35,7 @@ pablo = Mentee.create({
 	email: 'pablo@me.com',
 	password: 'password',
 	industry: 'Product Management',
-	interests: 'running'
+	fun_fact: 'I am Chilean but grew up in Brazil'
 	})
 
 dan = Mentee.create({
@@ -43,7 +44,7 @@ dan = Mentee.create({
 	email: 'dan@me.com',
 	password: 'password',
 	industry: 'Product Management',
-	interests: 'music'
+	fun_fact: "I'm a DJ"
 	})
 
 brice = Mentee.create({
@@ -52,7 +53,7 @@ brice = Mentee.create({
 	email: 'bric@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
-	interests: 'gaming'
+	fun_fact: 'I competed in the junior olympics for fencing.'
 	})
 
 kevin = Mentee.create({
@@ -61,7 +62,7 @@ kevin = Mentee.create({
 	email: 'kevin@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
-	interests: 'astronomy'
+	fun_fact: 'I am a professional ice skater'
 	})
 
 matt =  Mentor.create({
@@ -70,8 +71,7 @@ matt =  Mentor.create({
 	email: 'matt@me.com',
 	password: 'password',
 	industry: 'Web Development',
-	interests: 'fishing',
-	advice: 'Be one with the code.'
+	fun_fact: 'I have a PHD in mathematics',
 	})
 
 colleen = Mentor.create({
@@ -80,8 +80,7 @@ colleen = Mentor.create({
 	email: 'colleen@me.com',
 	password: 'password',
 	industry: 'Product Management',
-	interests: 'knitting',
-	advice: 'A project manager is not a manger, rather a facilitater.'
+	fun_fact: 'I knit crazy things',
 	})
 
 marco = Mentor.create({
@@ -90,8 +89,55 @@ marco = Mentor.create({
 	email: 'marco@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
-	interests: 'hiking',
-	advice: 'We translate research into design.'
+	fun_fact: 'I found a painting by banksy on the street.',
+	})
+
+q1 = Question.create({
+	question: 'What is your favorite place you have ever visited?'
+	})
+
+q2 = Question.create({
+	question: 'What is your favorite outdoor activity?'
+	})
+
+q3 = Question.create({
+	question: 'Cat or dog?'
+	})
+
+q4 = Question.create({
+	question: 'What is your favorite movie?'
+	})
+
+q5 = Question.create({
+	question: 'What is your favorite music genre?'
+	})
+
+q6 = Question.create({
+	question: 'What is a website you love?'
+	})
+
+q7 = Question.create({
+	question: 'Winter or summer?'
+	})
+
+q8 = Question.create({
+	question: 'What is your favorite indoor activity?'
+	})
+
+q9 = Question.create({
+	question: "What would you do if technology didn't exist?"
+	})
+
+q10 = Question.create({
+	question: "What is something interesting about you that most people don't care about?"
+	})
+
+q11 = Question.create({
+	question: 'What is your favorite food?'
+	})
+
+q12 = Question.create({
+	question: 'Do you have any hobbies? What are they?'
 	})
 
 # message1 = Message.create({

@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -16,7 +15,8 @@ gem 'coffee-rails', '~> 4.1.0'
 
 #font-awesome icons
 gem 'font-awesome-rails'
-
+# upload user photos
+gem 'paperclip', '~> 4.2.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

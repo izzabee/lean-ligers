@@ -23,8 +23,9 @@
           <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.text_area :interests, placeholder: 'What are some interests or hobbies you have?' %>
-          <%= f.text_area :advice, placeholder: 'Write one sentence of industry advice.' %>
+          <%= f.text_area :fun_fact, placeholder: 'What is a fun fact about you?' %>
+          <%= f.text_area :quote, placeholder: 'Enter a personal quote.' %>
+          <%= f.text_area :link, placeholder: 'Got a personal site? Link it here.' %>
           <%= f.submit "Sign up", class: "btn btn-default" %>
           <% end %>
         </div>

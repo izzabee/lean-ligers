@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   def update
     if params[:mentor]
       respond_to do |format|
-        if current_user.update(mentor_params)
+        if current_user.update(user_params)
           format.html { redirect_to homepage_path, notice: 'Edits saved.' }
           format.json { render :show, status: :ok, location: @mentor }
         else
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
       end
     elsif params[:mentee]
       respond_to do |format|
-        if current_user.update(mentee_params)
+        if current_user.update(user_params)
           format.html { redirect_to homepage_path, notice: 'Edits saved.' }
           format.json { render :show, status: :ok, location: @mentee }
         else
@@ -105,16 +105,8 @@ class UsersController < ApplicationController
 
   # Only these parameters can be passed through the form
   def user_params
-    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :interests, :advice, :password, :password_confirmation)
+    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :link, :password, :password_confirmation)
   end  
-
-  def mentee_params
-    params.require(:mentee).permit(:type, :first_name, :last_name, :email, :industry, :interests, :advice, :password, :password_confirmation)
-  end  
-
-  def mentor_params
-    params.require(:mentor).permit(:type, :first_name, :last_name, :email, :industry, :interests, :advice, :password, :password_confirmation)
-  end
 
   def password_params
     params.require(:user).permit(:password, :password_confirmation)

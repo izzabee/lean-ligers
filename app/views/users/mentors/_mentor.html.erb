@@ -1,5 +1,5 @@
-<!-- <p>The one piece of advice for someone looking to get a job in <%= @user.industry %> would be,  "<%= @user.advice %>"</p> -->
 
+<!-- rendering the correct button depending on current relationship -->
 <% if @user.mentorships.where(mentee_id: current_user.id, confirmed: true).exists? %>
 	<button class="pending mentorship-request <%= @user.id %> pending" disabled="disabled" style="background-color:green;">
 		Current Mentor

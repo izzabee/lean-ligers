@@ -16,18 +16,18 @@
         <%= f.label :industry, 'Industry' %><br>
         <%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']], :selected => current_user.industry %>
         <br/>
-        <%= f.label :interests, 'Interests' %><br>
-        <%= f.text_field :interests, value: current_user.interests %>
+        <%= f.label :quote, 'Personal Quote' %><br>
+        <%= f.text_field :quote, value: current_user.quote %>
+        <br>
+        <%= f.label :fun_fact, 'Fun Fact About You' %><br>
+        <%= f.text_field :fun_fact, value: current_user.fun_fact %>
+        <br>
+        <%= f.label :link, 'Personal Website' %><br>
+        <%= f.text_field :link, value: current_user.link %>
         <br>
         <%= f.label :password, 'Password' %><br>
         <%= f.password_field :password, placeholder: "Password" %>
         <br/>
-
-        <% if current_user.type == 'Mentor' %>
-          <%= render 'users/mentors/edit'  %>
-        <% else %>
-          <%= f.submit "Save Changes" %>
-        <% end %>
         
       <% end %>
 

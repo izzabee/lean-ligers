@@ -3,7 +3,8 @@
 	<% if current_user.mentees.any? %>
 		<% current_user.mentees.each do |mentee| %>
 			<p><%= mentee.mentee.first_name %></p>
-			<p>he/she enjoys <%= mentee.mentee.interests %></p>
+			<p><%= mentee.mentee.quote %></p>
+			<p>Fun fact <%= mentee.mentee.fun_fact %></p>
 			<p>Mentee since <%= mentee.created_at.strftime('%B %d, %Y') %></p>
 
 			<div id="inbox">
@@ -38,7 +39,8 @@
 	<% if current_user.pending_requests.any? %>
 		<% current_user.pending_requests.each do |mentee| %>
 			<p>Mentee: <%= mentee.mentee.first_name %></p>
-			<p>Enjoys: <%= mentee.mentee.interests %></p>
+			<p> <%= mentee.mentee.quote %></p>
+			<p>Fun fact <%= mentee.mentee.fun_fact %></p>
 			<p>Request sent at <%= mentee.created_at.strftime('%l:%M%P on %B %d, %Y') %></p>
 			<form action="mentors/<%=current_user.id%>/mentorships/<%=mentee.id%>" method="POST">
 				<input type="hidden" value="true" name="mentorship[confirmed]">

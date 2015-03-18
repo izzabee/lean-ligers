@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314190539) do
+ActiveRecord::Schema.define(version: 20150318221820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,20 @@ ActiveRecord::Schema.define(version: 20150314190539) do
   add_index "messages", ["mentee_id"], name: "index_messages_on_mentee_id", using: :btree
   add_index "messages", ["mentor_id"], name: "index_messages_on_mentor_id", using: :btree
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "question"
+    t.string   "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_questions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "type"
     t.string   "first_name",      null: false
@@ -45,8 +59,9 @@ ActiveRecord::Schema.define(version: 20150314190539) do
     t.string   "password_digest", null: false
     t.string   "session_token"
     t.string   "industry",        null: false
-    t.string   "interests",       null: false
-    t.string   "advice"
+    t.string   "quote"
+    t.string   "fun_fact"
+    t.string   "link"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

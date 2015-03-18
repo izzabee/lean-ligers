@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :questions
+
   resources :messages
   resources :users 
   resources :mentees, controller: 'users', type: 'Mentee' 
