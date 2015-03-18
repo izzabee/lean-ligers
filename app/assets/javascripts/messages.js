@@ -1,13 +1,5 @@
 console.log('message.js loaded')
 
-// $(function(){
-//   messageCollection = new MessageCollection();
-//   messageCollectionView = new MessageCollectionView(messageCollection);
-
-//   // On page load, get all the clowns from the database
-//   messageCollection.fetch();
-  
-// })
 
 $(function(){
 	console.log('DOM ready');
@@ -47,18 +39,18 @@ $(function(){
 			}
 		};
 
-		// and this sends it to server
-		$.ajax({
-			url: '/messages',
-			type: 'POST',
-			dataType: 'json',
-			data: formData,
-			success: function(returnData){
-				$form.slideUp($form[0].reset());
-				var sent = new Message(returnData);
-				var $li = $('<li class="msg-body"></li>');
-				renderMessage(sent, $li);
-				$ul.append($li);
+	// and this sends it to server
+	$.ajax({
+		url: '/messages',
+		type: 'POST',
+		dataType: 'json',
+		data: formData,
+		success: function(returnData){
+			$form[0].reset();
+			var sent = new Message(returnData);
+			var $li = $('<li class="msg-body"></li>');
+			renderMessage(sent, $li);
+			$ul.append($li);
 			}
 		})
 	});

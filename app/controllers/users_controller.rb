@@ -60,16 +60,28 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    binding.pry
-    klass = params[:user][:type].constantize
-    respond_to do |format|
-      if klass.update(user_params)
-        format.html { redirect_to homepage_path, notice: 'Edits saved.' }
-        format.json { render :show, status: :ok, location: @mentee }
-      else
-        format.html { render :edit }
-        format.json { render json: @mentee.errors, status: :unprocessable_entity }
+    if params[:mentor]
+      respond_to do |format|
+        if current_user.update(mentor_params)
+          format.html { redirect_to homepage_path, notice: 'Edits saved.' }
+          format.json { render :show, status: :ok, location: @mentor }
+        else
+          format.html { render :edit }
+          format.json { render json: @mentor.errors, status: :unprocessable_entity }
+        end
       end
+    elsif params[:mentee]
+      respond_to do |format|
+        if current_user.update(mentee_params)
+          format.html { redirect_to homepage_path, notice: 'Edits saved.' }
+          format.json { render :show, status: :ok, location: @mentee }
+        else
+          format.html { render :edit }
+          format.json { render json: @mentee.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      render :text => 'Oops something went wrong! Please try again.'
     end
   end
 
@@ -94,6 +106,14 @@ class UsersController < ApplicationController
   # Only these parameters can be passed through the form
   def user_params
     params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :interests, :advice, :password, :password_confirmation)
+  end  
+
+  def mentee_params
+    params.require(:mentee).permit(:type, :first_name, :last_name, :email, :industry, :interests, :advice, :password, :password_confirmation)
+  end  
+
+  def mentor_params
+    params.require(:mentor).permit(:type, :first_name, :last_name, :email, :industry, :interests, :advice, :password, :password_confirmation)
   end
 
   def password_params

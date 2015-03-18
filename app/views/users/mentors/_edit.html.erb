@@ -1,0 +1,9 @@
+<%= form_for current_user, method: :patch do |f| %>
+
+  <%= f.label :advice, 'Advice' %><br>
+  <%= f.text_area :advice, value: current_user.advice %>
+  <br>
+  <%= f.submit "Save Changes" %>
+
+<% end %>
+

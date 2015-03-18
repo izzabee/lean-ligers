@@ -1,9 +1,9 @@
 <section>
   <div class="container">
     <div class="col-sm-4 col-sm-offset-4">
-      <h1>Editing User</h1>
+      <h1>Edit Account</h1>
 
-      <%= form_for @user, method: :patch do |f| %>
+      <%= form_for current_user, method: :patch do |f| %>
         <%= f.label :first_name, 'First Name' %><br>
         <%= f.text_field :first_name, value: current_user.first_name %>
         <br/>
@@ -14,7 +14,7 @@
          <%= f.text_field :email, value:  current_user.email %>
         <br/>
         <%= f.label :industry, 'Industry' %><br>
-      	<%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']], :selected => current_user.industry %>
+        <%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']], :selected => current_user.industry %>
         <br/>
         <%= f.label :interests, 'Interests' %><br>
         <%= f.text_field :interests, value: current_user.interests %>
@@ -23,8 +23,14 @@
         <%= f.password_field :password, placeholder: "Password" %>
         <br/>
 
-        <%= f.submit "Save Changes" %>
+        <% if current_user.type == 'Mentor' %>
+          <%= render 'users/mentors/edit'  %>
+        <% else %>
+          <%= f.submit "Save Changes" %>
+        <% end %>
+        
       <% end %>
+
 
       <%= link_to 'Back', homepage_path %>
     </div>
