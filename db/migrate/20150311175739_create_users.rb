@@ -11,6 +11,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :quote
       t.string :fun_fact
       t.string :site
+      t.string :location, null: false
+      t.string :current_job
 
       t.timestamps null: false
     end

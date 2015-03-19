@@ -5,8 +5,14 @@
 	<div class="container">
 		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 		<h2><%= @user.industry %></h2>
-		<!-- avatar goes here -->
-		<h3 class="info-icon absolute-center"><i class="fa fa-user fa-2x"></i><!-- < %= @user.avatar.url(:thumb) %> --></h3>
+		<h3 class="info-icon absolute-center">
+			<!-- avatar goes here -->
+			<% if @user.avatar %>
+				<%= image_tag @user.avatar.url(:medium) %>
+			<% else %>
+				<i class="fa fa-user fa-2x"></i>
+			<% end %>
+		</h3>
 	</div>
 </div>
 <% end %>
@@ -16,7 +22,14 @@
 	<div class="container">
 		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 		<h2><%= @user.industry %></h2>
-		<h3 class="info-icon absolute-center"><i class="fa fa-user fa-2x"></i></h3>
+		<h3 class="info-icon absolute-center">
+			<!-- avatar goes here -->
+			<% if @user.avatar %>
+				<%= image_tag @user.avatar.url(:medium) %>
+			<% else %>
+				<i class="fa fa-user fa-2x"></i>
+			<% end %>
+		</h3>
 	</div>
 </div>
 <% end %>
@@ -26,7 +39,14 @@
 	<div class="container">
 		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 		<h2><%= @user.industry %></h2>
-		<h3 class="info-icon absolute-center"><i class="fa fa-user fa-2x"></i></h3>
+		<h3 class="info-icon absolute-center">
+			<!-- avatar goes here -->
+			<% if @user.avatar %>
+				<%= image_tag @user.avatar.url(:medium) %>
+			<% else %>
+				<i class="fa fa-user fa-2x"></i>
+			<% end %>
+		</h3>
 	</div>
 </div>
 <% end %>

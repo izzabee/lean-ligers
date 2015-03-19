@@ -22,11 +22,11 @@
         <%= f.label :fun_fact, 'Fun Fact About You' %><br>
         <%= f.text_field :fun_fact, value: current_user.fun_fact %>
         <br>
-        <%= f.label :site, 'Personal Website' %><br>
+        <%= f.label :site, 'Links and resources' %><br>
         <%= f.text_field :site, value: current_user.site %>
         <br>
         <%= f.label :avatar, 'Add a photo' %><br>
-        <%= f.file_field :avatar %>
+        <%= f.file_field :avatar, accept: 'image/png,image/gif,image/jpeg', value: current_user.avatar_file_name %>
         <br>
         <%= f.label :password, 'Password' %><br>
         <%= f.password_field :password, placeholder: "Password" %>

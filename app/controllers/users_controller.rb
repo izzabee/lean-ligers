@@ -113,15 +113,15 @@ class UsersController < ApplicationController
 
   # Only these parameters can be passed through the form
   def user_params
-    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :password, :password_confirmation)
+    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :avatar, :password, :password_confirmation)
   end  
 
   def mentee_params
-    params.require(:mentee).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :password, :password_confirmation)
+    params.require(:mentee).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :avatar, :password, :password_confirmation)
   end  
 
   def mentor_params
-    params.require(:mentor).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :password, :password_confirmation)
+    params.require(:mentor).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :avatar, :password, :password_confirmation)
   end  
 
   def password_params

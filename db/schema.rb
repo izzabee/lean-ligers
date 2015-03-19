@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20150318235624) do
     t.string   "quote"
     t.string   "fun_fact"
     t.string   "site"
+    t.string   "location",            null: false
+    t.string   "current_job"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "avatar_file_name"

@@ -17,7 +17,9 @@ izabella = Mentee.create({
 	email: 'izabella@me.com',
 	password: 'password',
 	industry: 'Web Development',
-	fun_fact: 'I speak English, Dutch and Italian'
+	fun_fact: 'I speak English, Dutch and Italian',
+	quote: 'Curiousity is key',
+	location: 'NYC'
 	})
 
 alvin = Mentee.create({
@@ -26,7 +28,9 @@ alvin = Mentee.create({
 	email: 'alvin@me.com',
 	password: 'password',
 	industry: 'Web Development',
-	fun_fact: 'I am a chess master'
+	fun_fact: 'I am a chess master',
+	quote: 'Do your thing',
+	location: 'NYC'
 	})
 
 pablo = Mentee.create({
@@ -35,7 +39,9 @@ pablo = Mentee.create({
 	email: 'pablo@me.com',
 	password: 'password',
 	industry: 'Product Management',
-	fun_fact: 'I am Chilean but grew up in Brazil'
+	fun_fact: 'I am Chilean but grew up in Brazil',
+	quote: 'Always think twice',
+	location: 'NYC'
 	})
 
 dan = Mentee.create({
@@ -44,7 +50,9 @@ dan = Mentee.create({
 	email: 'dan@me.com',
 	password: 'password',
 	industry: 'Product Management',
-	fun_fact: "I'm a DJ"
+	fun_fact: "I'm a DJ",
+	quote: 'Nice try, smartypants',
+	location: 'NYC'
 	})
 
 brice = Mentee.create({
@@ -53,7 +61,9 @@ brice = Mentee.create({
 	email: 'bric@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
-	fun_fact: 'I competed in the junior olympics for fencing.'
+	fun_fact: 'I competed in the junior olympics for fencing.',
+	quote: 'If you fail, try and try again.',
+	location: 'NYC'
 	})
 
 kevin = Mentee.create({
@@ -62,7 +72,9 @@ kevin = Mentee.create({
 	email: 'kevin@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
-	fun_fact: 'I am a professional ice skater'
+	fun_fact: 'I am a professional ice skater',
+	quote: 'Do not be afraid of failure',
+	location: 'NYC'
 	})
 
 matt =  Mentor.create({
@@ -72,6 +84,8 @@ matt =  Mentor.create({
 	password: 'password',
 	industry: 'Web Development',
 	fun_fact: 'I have a PHD in mathematics',
+	quote: "If you can't take the heat, get out of the kitchen.",
+	location: 'NYC'
 	})
 
 colleen = Mentor.create({
@@ -81,6 +95,8 @@ colleen = Mentor.create({
 	password: 'password',
 	industry: 'Product Management',
 	fun_fact: 'I knit crazy things',
+	quote: 'Be kind!',
+	location: 'NYC'
 	})
 
 marco = Mentor.create({
@@ -90,6 +106,8 @@ marco = Mentor.create({
 	password: 'password',
 	industry: 'User Experience Design',
 	fun_fact: 'I found a painting by banksy on the street.',
+	quote: 'Art is everywhere',
+	location: 'NYC'
 	})
 
 q1 = Question.create({
