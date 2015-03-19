@@ -13,6 +13,14 @@ class UsersController < ApplicationController
     @user = User.where(type: params[:type]).find(params[:id])
   end
 
+  # GET /hompage
+  def homepage
+    @userquestion = UserQuestion.all
+
+    rand_id = rand(Question.count)
+    @question = Question.where("id >= ?", rand_id).first
+  end
+
   # GET /users/new
   def new
     @user = User.new
@@ -62,7 +70,7 @@ class UsersController < ApplicationController
   def update
     if params[:mentor]
       respond_to do |format|
-        if current_user.update(user_params)
+        if current_user.update(mentor_params)
           format.html { redirect_to homepage_path, notice: 'Edits saved.' }
           format.json { render :show, status: :ok, location: @mentor }
         else
@@ -72,7 +80,7 @@ class UsersController < ApplicationController
       end
     elsif params[:mentee]
       respond_to do |format|
-        if current_user.update(user_params)
+        if current_user.update(mentee_params)
           format.html { redirect_to homepage_path, notice: 'Edits saved.' }
           format.json { render :show, status: :ok, location: @mentee }
         else
@@ -105,7 +113,15 @@ class UsersController < ApplicationController
 
   # Only these parameters can be passed through the form
   def user_params
-    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :link, :password, :password_confirmation)
+    params.require(:user).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :password, :password_confirmation)
+  end  
+
+  def mentee_params
+    params.require(:mentee).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :password, :password_confirmation)
+  end  
+
+  def mentor_params
+    params.require(:mentor).permit(:type, :first_name, :last_name, :email, :industry, :quote, :fun_fact, :site, :password, :password_confirmation)
   end  
 
   def password_params

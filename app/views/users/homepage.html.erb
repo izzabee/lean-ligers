@@ -5,8 +5,6 @@
 	<div class="row">
 		<div class="col-md-6">
 			<h1> Hello, <%= current_user.first_name %></h1>
-			<%= link_to 'Edit Profile', edit_mentee_path(current_user), class: "btn btn-default" %>
-			<%= link_to 'Edit Profile', edit_mentee_path(current_user), class: "btn btn-default" %>
 		</div>
 	</div>
 	<% if current_user.type == 'Mentor' %>
@@ -14,6 +12,23 @@
 	<% else %>
 		<%= render 'users/mentees/home' %>
 	<% end %>
+
+
+
+	<form action="/user_questions" method="POST">	
+		<label for="q_answer">
+			<% if @userquestion.where(user_id: current_user.id, question_id: @question.id).exists? %>
+				<script> window.location.reload() </script>
+			<% else %>
+				<%= @question.question %>
+			<% end %>
+		</label><br>
+		<input id="q_answer" type="textarea" name="answer" >
+		<input type="hidden" name="user_id" value="<%= current_user.id %>">
+		<input type="hidden" name="question_id" value="<%= @question.id %>">
+		<br>
+		<input type="submit" value="Submit Answer">
+	</form>	
 
 </div>
 </section>

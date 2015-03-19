@@ -1,3 +1,6 @@
+<%= link_to 'Edit Profile', edit_mentor_path(current_user), class: "btn btn-default" %>
+<%= link_to 'View My Profile', mentor_path(current_user), class: "btn btn-default" %>
+
 <h3>Currently Mentoring</h3>
 <div class="current mentorships">
 	<% if current_user.mentees.any? %>

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :questions
 
   resources :messages
   resources :users 
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
     resources :mentorships, only: [:new, :create, :destroy, :update]
   end
 
+  resources :user_questions, only: [:new, :create, :destroy, :update]
   resource :session, only: [:new, :create, :destroy]
 
   get '/login', to: 'sessions#new'

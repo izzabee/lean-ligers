@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :industry, null: false
       t.string :quote
       t.string :fun_fact
-      t.string :link
+      t.string :site
 
       t.timestamps null: false
     end

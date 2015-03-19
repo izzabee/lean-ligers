@@ -22,12 +22,16 @@
         <%= f.label :fun_fact, 'Fun Fact About You' %><br>
         <%= f.text_field :fun_fact, value: current_user.fun_fact %>
         <br>
-        <%= f.label :link, 'Personal Website' %><br>
-        <%= f.text_field :link, value: current_user.link %>
+        <%= f.label :site, 'Personal Website' %><br>
+        <%= f.text_field :site, value: current_user.site %>
+        <br>
+        <%= f.label :avatar, 'Add a photo' %><br>
+        <%= f.file_field :avatar %>
         <br>
         <%= f.label :password, 'Password' %><br>
         <%= f.password_field :password, placeholder: "Password" %>
         <br/>
+        <%= f.submit "Save Changes" %>
         
       <% end %>
 
