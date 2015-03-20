@@ -20,6 +20,10 @@ section {
 	margin-bottom: 24px;
 }
 
+p {
+	line-height: 1.5em;
+}
+
 a {
 	color: inherit;
 	-webkit-transition: all 0.5s ease;
@@ -95,6 +99,20 @@ p {
 	width: 80px;
 }
 
+.login-well, .login-well .in, #login {
+	width: 300px;
+	position: absolute;
+	right: 0;
+}
+
+#login {
+	padding-top: 24px;
+}
+
+#login input {
+	margin-top: 12px;
+}
+
 .modal {
 	background: #333;
 	color: #f5f5f5;
@@ -151,11 +169,17 @@ textarea {
 
 .home {
 	text-align: center;
+	background: #DC143C;
 }
 
 .home .jumbotron {
-	background: #f5f5f5;
-	padding-bottom: 0px;
+	background: #DC143C;
+	color: #f5f5f5;
+	padding-top: 100px;
+}
+
+.home nav {
+	color: #333;
 }
 
 .home .jumbotron form label {
@@ -187,20 +211,50 @@ textarea {
 	font-size: 3em;
 }
 
+/******* Sign Up Page *******/
+
+.newUser, .editUser {
+	margin-top: 40px;
+}
+
+.back {
+	margin-bottom: 24px;
+}
+
+.newUser input {
+	margin-bottom: 12px;
+}
+
+
 /******* Mentor Directory *******/
 
 .mentor-directory {
+	padding: 120px;
 	text-align: center;
+}
+
+#salaryInfo {
+	margin: 0 auto;
 }
 
 .industry-select {
 	margin-top: 24px;
 }
 
+.mentor-search h1 {
+	margin-right: 12px;
+}
+
+.mentor-search select {
+	margin-bottom: 16px;
+	width: 200px;
+}
+
+
 .mentor-icon {
 	display: block;
-	max-width: 200px;
-	max-height: 200px;
+	width: 200px;
+	height: 200px;
 	line-height: 220px;
 	margin: 0 auto;
 	background: #f5f5f5;
@@ -209,6 +263,11 @@ textarea {
 	border-radius: 100%;
 }
 
+/* .mentor-image img {
+	height: 100%;
+	border-radius: 100%;
+}
+ */
 .mentor-web .mentor-icon, .mentor-web .info-icon {
 	border: 6px solid #06698F;
 }
@@ -239,7 +298,7 @@ textarea {
 	padding-top: 160px;
 }
 
-.cover-photo h3 {
+.cover-photo .mentor-image {
 	width: 200px;
 	height: 200px;
 	display: block;
@@ -250,31 +309,25 @@ textarea {
 	margin-top: 340px;
 	font-size: 4em;
 	color: #f5f5f5;
-	border: 8px solid #A9A9A9;
+	border: 8px solid #f5f5f5;
+	overflow: hidden;
+}
+
+.mentor-image {
+	background-size: cover;
+	border: 8px solid #f5f5f5;
 }
 
 .web-skin {
 	background: #06698F;
 }
 
-.web-skin h3 {
-	border: 8px solid #06698F;
-}
-
 .ux-skin {
 	background: #8F1B33;
 }
 
-.ux-skin h3 {
-	border: 8px solid #8F1B33;
-}
-
 .pm-skin {
 	background: #008F18;
-}
-
-.pm-skin h3 {
-	border: 8px solid #008F18;
 }
 
 .user-homepage {
@@ -319,4 +372,15 @@ textarea {
 
 .pending-mentors, .current-mentors {
 	background: #fff;
+}
+
+.pending-mentors input, .current-mentors input {
+	margin-bottom: 12px;
+}
+
+.close-window {
+	display: block;
+	margin: 12px auto;
+	font-size: 2em;
+	cursor: pointer;
 }

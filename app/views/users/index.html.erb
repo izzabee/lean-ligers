@@ -3,33 +3,63 @@
   <div class="container">
 
     <div class="row">
-      <h1>Meet Our Mentors</h1>
-      <form class="form-horizontal col-sm-6 col-sm-offset-3">
-          <select class="form-control industry-select">
-            <option>Product Management</option>
-            <option>User Experience Design</option>
-            <option>Web Development</option>
-          </select>
-      </form>
+      <form class="form-inline mentor-search">
+      <div class="form-group">
+        <label><h1>Find a Mentor In </h1></label><select type="career" class="form-control" id="careerSelect" placeholder="Tech" name="careerSelect">
+          <option value="all">All Careers</option>
+          <option value="product">Product Management</option>
+          <option value="design">UI/UX Design</option>
+          <option value="dev">Web Development</option>
+        </select>
+      </div>
+    </form>
+
+
+    <div class="col-sm-8 col-sm-offset-2">
+      <h3>Career Description</h3>
+      <p id="career-description"> Here you can see all of the mentors on CareerCupid! If you’d like to search by career, select your preference above.</p>
+
+      <button class="btn btn-default" id="salaryInfo" type="button" data-toggle="collapse" data-target="#readMore" aria-expanded="false" aria-controls="collapseExample"> Salary Info </button>
+
+      <div class="collapse" id="readMore">
+        <div class="well">
+          <div class="row">
+          <div class="col-sm-4">
+            <h4>Min:</h4>
+            <p id="minSalary">$34,103</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Median:</h4>
+            <p class="medSalary">$58,583</p>
+          </div>
+          <div class="col-sm-4">
+            <h4>Max:</h4>
+            <p id="maxSalary">$88,736</p>
+          </div>
+        </div>
+      </div>
     </div>
+
+    </div>
+  </div>
 
     <% @users.each do |user| %>
       <% if user.industry == 'Web Development' %>
-        <div class="mentor-card col-sm-4 mentor-web">
+        <div class="mentor-card col-sm-6 col-md-4 mentor-web">
           <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
         </div>
       <% end %>
       <% if user.industry == 'Product Management' %>
-        <div class="mentor-card col-sm-4 mentor-pm">
+        <div class="mentor-card col-sm-6 col-md-4 mentor-pm">
           <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
         </div>
       <% end %>
       <% if user.industry == 'User Experience Design' %>
-        <div class="mentor-card col-sm-4 mentor-ux">
+        <div class="mentor-card col-sm-6 col-md-4 mentor-ux">
           <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
