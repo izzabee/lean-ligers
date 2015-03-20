@@ -83,11 +83,17 @@ $(function(){
 			content = message.content;
 			mentee_id = message.mentee_id;
 			mentor_id = message.mentor_id;
-			var $h4 = $('<h4>');
-			var $ptag = $('<p>');
-			$h4.text(subject);
-			$ptag.text(content);
-			li.append($h4).append($ptag);
+			var h4 = document.createElement("h4");
+			h4.innerHTML = subject;
+			var p = document.createElement("p");
+			p.innerHTML = content;
+
+			var li = document.createElement("li");
+			li.appendChild(h4);
+			li.appendChild(p);
+
+			var ul = document.getElementById("conversation_" + message.mentor_id)
+			ul.appendChild(li);
 		}
 
 		populateMessages();
@@ -148,16 +154,23 @@ $(function(){
 			})
 		};
 
-		var renderMessage = function (message, li) {
+		var renderMessage = function (message) {
 			subject = message.subject;
 			content = message.content;
 			mentee_id = message.mentee_id;
 			mentor_id = message.mentor_id;
-			var $h4 = $('<h4>');
-			var $ptag = $('<p>');
-			$h4.text(subject);
-			$ptag.text(content);
-			li.append($h4).append($ptag);
+
+			var h4 = document.createElement("h4");
+			h4.innerHTML = subject;
+			var p = document.createElement("p");
+			p.innerHTML = content;
+
+			var li = document.createElement("li");
+			li.appendChild(h4);
+			li.appendChild(p);
+
+			var ul = document.getElementById("conversation_" + message.mentee_id)
+			ul.appendChild(li);
 		}
 
 		populateMessages();
@@ -166,3 +179,9 @@ $(function(){
 
 
 });
+
+// var $h4 = $('<h4>');
+// var $ptag = $('<p>');
+// $h4.text(subject);
+// $ptag.text(content);
+// li.append($h4).append($ptag);
