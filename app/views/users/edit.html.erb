@@ -1,42 +1,61 @@
-<section>
+<section class="editUser">
   <div class="container">
-    <div class="col-sm-4 col-sm-offset-4">
-      <h1>Edit Account</h1>
-
+    <div class="col-sm-12">
+    <h1>Edit Account</h1>
+    <%= link_to 'Back', homepage_path, class: "btn btn-default back" %>
+    </div>
+    <div class="col-sm-4">
       <%= form_for current_user, method: :patch do |f| %>
+        <div class="form-group">
         <%= f.label :first_name, 'First Name' %><br>
-        <%= f.text_field :first_name, value: current_user.first_name %>
-        <br/>
+        <%= f.text_field :first_name, value: current_user.first_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
         <%= f.label :last_name, 'Last Name' %><br>
-        <%= f.text_field :last_name, value:  current_user.last_name %>
-        <br/>
+        <%= f.text_field :last_name, value:  current_user.last_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
         <%= f.label :email, 'Email Address' %><br>
-         <%= f.text_field :email, value:  current_user.email %>
-        <br/>
+        <%= f.text_field :email, value:  current_user.email, class: "form-control" %>
+        </div>
+        <div class="form-group">
         <%= f.label :industry, 'Industry' %><br>
         <%= f.select :industry,  [['Web Development'], ['User Experience Design'], ['Project Management']], :selected => current_user.industry %>
-        <br/>
+        </div>
+        <div class="form-group">
+        <%= f.label :location, 'Location' %><br>
+        <%= f.text_field :location, value: current_user.location, class: "form-control" %>
+        </div>
+        <div class="form-group">
+        <%= f.label :current_job, 'Current Job' %><br>
+        <%= f.text_field :current_job, value: current_user.current_job, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-sm-4 col-sm-offset-1">
+        <div class="form-group">
         <%= f.label :quote, 'Personal Quote' %><br>
-        <%= f.text_field :quote, value: current_user.quote %>
-        <br>
+        <%= f.text_field :quote, value: current_user.quote, class: "form-control" %>
+        </div>
+        <div class="form-group">
         <%= f.label :fun_fact, 'Fun Fact About You' %><br>
-        <%= f.text_field :fun_fact, value: current_user.fun_fact %>
-        <br>
+        <%= f.text_field :fun_fact, value: current_user.fun_fact, class: "form-control" %>
+        </div>
+        <div class="form-group">
         <%= f.label :site, 'Links and resources' %><br>
-        <%= f.text_field :site, value: current_user.site %>
-        <br>
+        <%= f.text_field :site, value: current_user.site, class: "form-control" %>
+        </div>
+        <div class="form-group">
         <%= f.label :avatar, 'Add a photo' %><br>
         <%= f.file_field :avatar, accept: 'image/png,image/gif,image/jpeg', value: current_user.avatar_file_name %>
-        <br>
+        </div>
+        <div class="form-group">
         <%= f.label :password, 'Password' %><br>
-        <%= f.password_field :password, placeholder: "Password" %>
-        <br/>
-        <%= f.submit "Save Changes" %>
-        
+        <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+        </div>
+        <%= f.submit "Save Changes", class: "btn btn-default" %>
+
       <% end %>
-
-
-      <%= link_to 'Back', homepage_path %>
+      </div>
     </div>
   </div>
 </section>

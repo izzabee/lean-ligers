@@ -2,10 +2,9 @@
 
 <section id="user-homepage">
 <div class="container">
+
 	<div class="row">
-		<div class="col-md-6">
-			<h1> Hello, <%= current_user.first_name %></h1>
-		</div>
+		<h1> Hello, <%= current_user.first_name %></h1>
 	</div>
 	<% if current_user.type == 'Mentor' %>
 		<%= render 'users/mentors/home' %>
@@ -13,9 +12,9 @@
 		<%= render 'users/mentees/home' %>
 	<% end %>
 
-
-
-	<form action="/user_questions" method="POST">	
+	<!-- <div class="row">
+	<div class="col-sm-3">
+	<form action="/user_questions" method="POST">
 		<label for="q_answer">
 			<% if @userquestion.where(user_id: current_user.id, question_id: @question.id).exists? %>
 				<script> window.location.reload() </script>
@@ -28,7 +27,9 @@
 		<input type="hidden" name="question_id" value="<%= @question.id %>">
 		<br>
 		<input type="submit" value="Submit Answer">
-	</form>	
+	</form>
+	</div>
+</div> -->
 
 </div>
 </section>

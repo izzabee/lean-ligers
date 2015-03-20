@@ -5,14 +5,12 @@
 	<div class="container">
 		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 		<h2><%= @user.industry %></h2>
-		<h3 class="info-icon absolute-center">
 			<!-- avatar goes here -->
-			<% if @user.avatar %>
-				<%= image_tag @user.avatar.url(:medium) %>
+			<% if @user.avatar.exists? %>
+				<div class="mentor-image absolute-center" style="background: url(<%= @user.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></div>
 			<% else %>
-				<i class="fa fa-user fa-2x"></i>
+				<div class="info-icon mentor-image absolute-center"><i class="fa fa-user fa-2x"></i></div>
 			<% end %>
-		</h3>
 	</div>
 </div>
 <% end %>
@@ -22,14 +20,12 @@
 	<div class="container">
 		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 		<h2><%= @user.industry %></h2>
-		<h3 class="info-icon absolute-center">
-			<!-- avatar goes here -->
-			<% if @user.avatar %>
-				<%= image_tag @user.avatar.url(:medium) %>
-			<% else %>
-				<i class="fa fa-user fa-2x"></i>
-			<% end %>
-		</h3>
+		<!-- avatar goes here -->
+		<% if @user.avatar.exists? %>
+			<div class="mentor-image absolute-center" style="background: url(<%= @user.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></div>
+		<% else %>
+			<div class="info-icon mentor-image absolute-center"><i class="fa fa-user fa-2x"></i></div>
+		<% end %>
 	</div>
 </div>
 <% end %>
@@ -39,14 +35,12 @@
 	<div class="container">
 		<h1><%= @user.first_name %> <%= @user.last_name %></h1>
 		<h2><%= @user.industry %></h2>
-		<h3 class="info-icon absolute-center">
-			<!-- avatar goes here -->
-			<% if @user.avatar %>
-				<%= image_tag @user.avatar.url(:medium) %>
-			<% else %>
-				<i class="fa fa-user fa-2x"></i>
-			<% end %>
-		</h3>
+		<!-- avatar goes here -->
+		<% if @user.avatar.exists? %>
+			<div class="mentor-image absolute-center" style="background: url(<%= @user.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></div>
+		<% else %>
+			<div class="info-icon mentor-image absolute-center"><i class="fa fa-user fa-2x"></i></div>
+		<% end %>
 	</div>
 </div>
 <% end %>
@@ -77,14 +71,28 @@
 	<!-- <p>Seeking: <%= @user.type == 'Mentee' ? 'A mentor in ' : 'A mentee interested in ' %> <%= @user.industry %> </p>
 	<p>Email: <%= @user.email %> </p>
 	<p>Outside of work, I enjoy <%= @user.quote %> </p> -->
-	<div class="col-sm-6 col-sm-offset-3">
-		<p class="quote"><i class="fa fa-quote-left"></i><%= @user.quote %><i class="fa fa-quote-right"></i></p>
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-4 border-right">
+			<h2> <%= @user.current_job %></h2>
+			<h3><%= @user.location %> </h3>
+		</div>
 	</div>
-	<div class="col-sm-6 col-sm-offset-3">
-		<p class="quote">Fun fact about me is that <%= @user.fun_fact %></p>
+	<div class="row">
+		<div class="col-sm-4 col-sm-offset-1">
+			<h3>Quote</h3>
+			<p class="quote"><i class="fa fa-quote-left"></i><%= @user.quote %><i class="fa fa-quote-right"></i></p>
+		</div>
+		<div class="col-sm-4 col-sm-offset-2">
+			<h3>Fun Facts</h3>
+			<p class="quote"><i class="fa fa-quote-left"></i><%= @user.fun_fact %><i class="fa fa-quote-right"></i></p>
+		</div>
+		</div>
+		<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<h3>Links / Resources</h3>
+			<p class="quote"><%= @user.site %></p>
+		</div>
 	</div>
-
-
 
 
 

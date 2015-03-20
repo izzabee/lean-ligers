@@ -17,9 +17,11 @@ izabella = Mentee.create({
 	email: 'izabella@me.com',
 	password: 'password',
 	industry: 'Web Development',
+	site: 'colours.neilorangepeel.com/',
+	current_job: 'GA WDI Student',
 	fun_fact: 'I speak English, Dutch and Italian',
 	quote: 'Curiousity is key',
-	location: 'NYC'
+	location: 'New York, NY'
 	})
 
 alvin = Mentee.create({
@@ -30,7 +32,7 @@ alvin = Mentee.create({
 	industry: 'Web Development',
 	fun_fact: 'I am a chess master',
 	quote: 'Do your thing',
-	location: 'NYC'
+	location: 'New York, NY'
 	})
 
 pablo = Mentee.create({
@@ -41,7 +43,7 @@ pablo = Mentee.create({
 	industry: 'Product Management',
 	fun_fact: 'I am Chilean but grew up in Brazil',
 	quote: 'Always think twice',
-	location: 'NYC'
+	location: 'New York, NY'
 	})
 
 dan = Mentee.create({
@@ -52,18 +54,18 @@ dan = Mentee.create({
 	industry: 'Product Management',
 	fun_fact: "I'm a DJ",
 	quote: 'Nice try, smartypants',
-	location: 'NYC'
+	location: 'New York, NY'
 	})
 
 brice = Mentee.create({
 	first_name: 'Andrew',
 	last_name: 'Brice',
-	email: 'bric@me.com',
+	email: 'brice@me.com',
 	password: 'password',
 	industry: 'User Experience Design',
 	fun_fact: 'I competed in the junior olympics for fencing.',
 	quote: 'If you fail, try and try again.',
-	location: 'NYC'
+	location: 'New York, NY'
 	})
 
 kevin = Mentee.create({
@@ -74,7 +76,7 @@ kevin = Mentee.create({
 	industry: 'User Experience Design',
 	fun_fact: 'I am a professional ice skater',
 	quote: 'Do not be afraid of failure',
-	location: 'NYC'
+	location: 'New York, NY'
 	})
 
 matt =  Mentor.create({
@@ -85,7 +87,9 @@ matt =  Mentor.create({
 	industry: 'Web Development',
 	fun_fact: 'I have a PHD in mathematics',
 	quote: "If you can't take the heat, get out of the kitchen.",
-	location: 'NYC'
+	location: 'New York, NY',
+	current_job: 'GA WDI Instructor',
+	site: "codepen.io/"
 	})
 
 colleen = Mentor.create({
@@ -96,7 +100,9 @@ colleen = Mentor.create({
 	industry: 'Product Management',
 	fun_fact: 'I knit crazy things',
 	quote: 'Be kind!',
-	location: 'NYC'
+	location: 'New York, NY',
+	current_job: 'GA PMI Instructor',
+	site: 'www.producthunt.com/'
 	})
 
 marco = Mentor.create({
@@ -107,7 +113,49 @@ marco = Mentor.create({
 	industry: 'User Experience Design',
 	fun_fact: 'I found a painting by banksy on the street.',
 	quote: 'Art is everywhere',
-	location: 'NYC'
+	location: 'New York, NY',
+	current_job: 'GA UXDI Instructor',
+	site: 'onepagelove.com/'
+	})
+
+jessica = Mentor.create({
+	first_name: 'Jessica',
+	last_name: 'Bergman',
+	email: 'jessica@bergman.com',
+	password: 'password',
+	industry: 'Product Management',
+	fun_fact: "I always loved to fly. My father used to be a pilot and would take me on trips on a rented light plane",
+	quote: "As a product manager you will wear many hats: business, UX, project management, etc. But first of all, you are a communicator!",
+	location: 'Redwood City, CA',
+	current_job: 'Product Manager',
+	site: 'toggl.com/'
+	})
+
+mike = Mentor.create({
+	first_name: 'Mike',
+	last_name: 'Burnham',
+	email: 'mike@burnham.com',
+	password: 'password',
+	industry: 'User Experience Design',
+	fun_fact: "When I was 8 I was on a famous children's television show; I can tell you more about it later
+",
+	quote: 'If you are not talking to users, you are not doing user-centered design',
+	location: 'Boston, MA',
+	current_job: 'UI Designer',
+	site: 'pttrns.com'
+	})
+
+peter = Mentor.create({
+	first_name: 'Peter',
+	last_name: 'Armstrong',
+	email: 'peter@armstrong.com',
+	password: 'password',
+	industry: 'Web Development',
+	fun_fact: "I destroyed my father's work computer when I was 12",
+	quote: 'Getting into Web Development has never been as easy as it is now. But you still need a good strategy to get there!',
+	location: 'Raleigh, NC',
+	current_job: 'Senior Web Developer',
+	site: 'getbootstrap.com/'
 	})
 
 q1 = Question.create({

@@ -13,10 +13,14 @@
       <form class="form-inline quick-search">
         <div class="form-group">
           <label><h4>I'm looking for a career in </h4></label><select type="career" class="form-control" id="industryExample1" placeholder="Tech">
+            <option value="all">All Careers</option>
             <option value="product">Product Management</option>
             <option value="design">UI/UX Design</option>
             <option value="dev">Web Development</option>
           </select>
+
+          <!-- need to submit the value of the select and append to the url /mentors/value, then make an ajax call to url and grab the value -->
+
           <a href="/mentors" class="btn btn-default">GO!</a>
         </div>
       </form>
