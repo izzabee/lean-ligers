@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var uxMentors = [];
   var webMentors = [];
   var select = document.getElementById("careerSelect");
+  var careerHeader = document.getElementById("career-header");
   var description = document.getElementById("career-description");
   var minSal = document.getElementById("minSalary");
   var medSal = document.getElementById("medSalary");
@@ -47,6 +48,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   for (var i = 0; i < webCards.length; i++) {
     webMentors.push(webCards[i]);
   }
+
+  careerHeader.style.display = "none";
   salaryInfo.style.display = "none";
 
   select.onchange = function() {
@@ -56,9 +59,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
       displayMentors(uxMentors);
       displayMentors(webMentors);
       description.innerHTML = descriptionAll;
+      careerHeader.style.display = "none";
       salaryInfo.style.display = "none";
     }
     if (career === "product") {
+      careerHeader.style.display = "block";
       salaryInfo.style.display = "block";
       displayMentors(pmMentors);
       description.innerHTML = descriptionPM;
@@ -69,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       maxSal.innerHTML = pmMax;
     }
     if (career === "design") {
+      careerHeader.style.display = "block";
       salaryInfo.style.display = "block";
       displayMentors(uxMentors);
       description.innerHTML = descriptionUX;
@@ -79,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       maxSal.innerHTML = uxMax;
     }
     if (career === "dev") {
+      careerHeader.style.display = "block";
       salaryInfo.style.display = "block";
       displayMentors(webMentors);
       description.innerHTML = descriptionWeb;

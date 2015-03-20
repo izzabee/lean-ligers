@@ -2,54 +2,63 @@
 	<%= link_to 'Edit Profile', edit_mentee_path(current_user), class: "btn btn-default" %>
 	<%= link_to 'View My Profile', mentee_path(current_user), class: "btn btn-default" %>
 </div>
+
+<span id="userType"><%=current_user.type%></span>
+
 <div class="row">
-<div class="col-sm-3 pending-mentors">
+<div class="col-sm-6 pending-mentors">
 <h2>Pending Mentorship Requests</h2>
 <div class="pending mentorships">
 	<% if current_user.pending_requests.any? %>
 		<% current_user.pending_requests.each do |mentor| %>
-			<p>Mentor: <%= mentor.mentor.first_name %></p>
-			<p>Industry <%= mentor.mentor.industry %></p>
-			<p>Request sent at <%= mentor.created_at.strftime('%l:%M%P on %B %d, %Y') %></p>
+			<h3><a href="mentors/<%= mentor.mentor.id %>"><%= mentor.mentor.first_name %> <%= mentor.mentor.last_name %></a></h3>
+			<h4><%= mentor.mentor.industry %></h4>
+			<p class="italic">Request sent at <%= mentor.created_at.strftime('%l:%M%P on %B %d, %Y') %></p>
 		<% end %>
 	<% else %>
-		<p>You currently have no pending mentorship requests.</p>
+		<p class="italic">You currently have no pending mentorship requests.</p>
 	<% end %>
 </div>
 </div>
 
-<div class="col-sm-6 col-sm-offset-1 current-mentors">
-<h2>Current Mentors</h2>
-<div class="current mentorships">
-	<% if current_user.mentors.any? %>
-		<% current_user.mentors.each do |mentor| %>
-			<h3><%= mentor.mentor.first_name %> <%= mentor.mentor.last_name %></h3>
-			<h4><%= mentor.mentor.industry %></h4>
-			<p class="italic">Mentor since <%= mentor.created_at.strftime('%a %B %d %Y') %></p>
+<div class="col-sm-12 mentorships-header">
+	<h1>Current Mentors</h1>
+	<p class="quote"> Connect with your mentors below! </p>
+</div>
 
-			<div id="inbox">
-				<h4>Conversation with <%= mentor.mentor.first_name %></h4>
-				<ul class="conversation">
+
+<% if current_user.mentors.any? %>
+	<% current_user.mentors.each do |mentor| %>
+<div class="col-sm-6 current-mentors">
+<div class="current mentorships">
+			<button class="btn btn-default" id="end-mentorship">End Mentorship</button>
+			<h3><a href="mentors/<%= mentor.mentor.id %>"><%= mentor.mentor.first_name %> <%= mentor.mentor.last_name %></a></h3>
+			<p><%= mentor.mentor.industry %></p>
+			<p class="italic small">Mentor since <%= mentor.created_at.strftime('%a %B %d %Y') %></p>
+
+			<div class="inbox" id="inbox_<%= mentor.mentor.id %>">
+				<ul class="conversation" id="conversation_<%=mentor.mentor.id%>">
+
 				</ul>
 			</div>
 
 			<button data-method="compose" class="get-message btn btn-default">Message <%= mentor.mentor.first_name %></button>
-
-			<form class="compose">
-			  <div class="close-window">&times;</div>
+			<form class="compose" id="form_<%= mentor.mentor.id %>">
+				<div class="close-window">&times;</div>
 			  <input type="hidden" name="mentee_id" value="<%= current_user.id %>">
 			  <input type="hidden" name="mentor_id" value="<%= mentor.mentor.id %>">
-			  <input type="text" name="subject" placeholder="Subject">
-			  <textarea name="content" placeholder="Body"></textarea>
-			  <button id="send-message" class="btn btn-default">Send</button>
+			  <input type="text" name="subject" placeholder="Subject" class="form-control">
+			  <textarea name="content" placeholder="Message" class="form-control"></textarea>
+			  <button class="btn btn-default send-message" id="send_<%=mentor.mentor.id%>">Send</button>
 			</form>
-
-			<hr>
-
-		<% end %>
-	<% else %>
-		<p>You have no current mentors</p>
+		</div>
+	</div>
 	<% end %>
-</div>
-</div>
+<% else %>
+<div class="col-sm-12 current-mentors">
+	<div class="current mentorships">
+				<p class="italic">You have no current mentors</p>
+			</div>
+	</div>
+<% end %>
 </div>
