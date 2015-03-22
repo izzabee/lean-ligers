@@ -45,21 +45,34 @@
     <% @users.each do |user| %>
       <% if user.industry == 'Web Development' %>
         <div class="mentor-card col-sm-6 col-md-4 mentor-web">
-          <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+          <!-- avatar goes here -->
+    			<% if user.avatar.exists? %>
+    				<a href="/mentors/<%= user.id %>" class="directory-image" style="background: url(<%= user.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
+    			<% else %>
+            <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+    			<% end %>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
         </div>
       <% end %>
       <% if user.industry == 'Product Management' %>
         <div class="mentor-card col-sm-6 col-md-4 mentor-pm">
-          <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% if user.avatar.exists? %>
+            <a href="/mentors/<%= user.id %>" class="directory-image" style="background: url(<%= user.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
+          <% else %>
+            <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% end %>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
         </div>
       <% end %>
       <% if user.industry == 'User Experience Design' %>
         <div class="mentor-card col-sm-6 col-md-4 mentor-ux">
-          <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% if user.avatar.exists? %>
+            <a href="/mentors/<%= user.id %>" class="directory-image" style="background: url(<%= user.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
+          <% else %>
+            <a href="/mentors/<%= user.id %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% end %>
           <h2><%= link_to user.first_name, user %></h2>
           <h3><%= user.industry %></h3>
         </div>

@@ -257,7 +257,7 @@ textarea {
 }
 
 
-.mentor-icon {
+.mentor-icon, .directory-image {
 	display: block;
 	width: 200px;
 	height: 200px;
@@ -269,22 +269,18 @@ textarea {
 	border-radius: 100%;
 }
 
-/* .mentor-image img {
-	height: 100%;
-	border-radius: 100%;
-}
- */
-.mentor-web .mentor-icon, .mentor-web .info-icon {
-	border: 6px solid #06698F;
-}
-
-.mentor-pm .mentor-icon, .mentor-pm .info-icon  {
+.mentor-pm .mentor-icon, .mentor-pm .info-icon, .mentor-pm .directory-image  {
 	border: 6px solid #008F18;
 }
 
-.mentor-ux .mentor-icon, .mentor-ux .info-icon{
+.mentor-ux .mentor-icon, .mentor-ux .info-icon, .mentor-ux .directory-image{
 	border: 6px solid #8F1B33;
 }
+
+.mentor-web .mentor-icon, .mentor-web .info-icon, .mentor-web .directory-image {
+	border: 6px solid #06698F;
+}
+
 
 .mentor-card {
 	background: #fff;

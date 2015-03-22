@@ -34,7 +34,11 @@
 
       <% @mentors.where(id: 8).each do |mentor| %>
         <div class="col-sm-4 mentor-pm">
-          <a href="<%= mentor_path(mentor.id) %>" class="info-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% if mentor.avatar.exists? %>
+            <a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
+          <% else %>
+            <a href="<%= mentor_path(mentor.id) %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% end %>
           <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
           <h3><%= mentor.industry %></h3>
         </div>
@@ -42,7 +46,11 @@
 
       <% @mentors.where(id: 9).each do |mentor| %>
         <div class="col-sm-4 mentor-ux">
-          <a href="<%= mentor_path(mentor.id) %>" class="info-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% if mentor.avatar.exists? %>
+            <a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
+          <% else %>
+            <a href="<%= mentor_path(mentor.id) %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% end %>
           <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
           <h3><%= mentor.industry %></h3>
         </div>
@@ -50,7 +58,11 @@
 
       <% @mentors.where(id: 7).each do |mentor| %>
         <div class="col-sm-4 mentor-web">
-          <a href="<%= mentor_path(mentor.id) %>" class="info-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% if mentor.avatar.exists? %>
+    				<a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
+    			<% else %>
+            <a href="<%= mentor_path(mentor.id) %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+    			<% end %>
           <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
           <h3><%= mentor.industry %></h3>
         </div>
