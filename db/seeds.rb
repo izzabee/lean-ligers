@@ -17,7 +17,6 @@ izabella = Mentee.create({
 	email: 'izabella@me.com',
 	password: 'password',
 	industry: 'Web Development',
-	site: 'colours.neilorangepeel.com/',
 	current_job: 'GA WDI Student',
 	fun_fact: 'I speak English, Dutch and Italian',
 	quote: 'Curiousity is key',
