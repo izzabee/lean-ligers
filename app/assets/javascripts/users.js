@@ -69,9 +69,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
       description.innerHTML = descriptionPM;
       hideMentors(uxMentors);
       hideMentors(webMentors);
-      minSal.innerHTML = pmMin;
-      medSal.innerHTML = pmMed;
-      maxSal.innerHTML = pmMax;
+      minSal.innerHTML = '$' + pmMin;
+      medSal.innerHTML = '$' + pmMed;
+      maxSal.innerHTML = '$' + pmMax;
     }
     if (career === "design") {
       careerHeader.style.display = "block";
@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
       description.innerHTML = descriptionUX;
       hideMentors(pmMentors);
       hideMentors(webMentors);
-      minSal.innerHTML = uxMin;
-      medSal.innerHTML = uxMed;
-      maxSal.innerHTML = uxMax;
+      minSal.innerHTML = '$' + uxMin;
+      medSal.innerHTML = '$' + uxMed;
+      maxSal.innerHTML = '$' + uxMax;
     }
     if (career === "dev") {
       careerHeader.style.display = "block";
@@ -91,9 +91,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
       description.innerHTML = descriptionWeb;
       hideMentors(pmMentors);
       hideMentors(uxMentors);
-      minSal.innerHTML = webMin;
-      medSal.innerHTML = webMed;
-      maxSal.innerHTML = webMax;
+      minSal.innerHTML = '$' + webMin;
+      medSal.innerHTML = '$' + webMed;
+      maxSal.innerHTML = '$' + webMax;
     }
   };
 
