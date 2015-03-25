@@ -45,7 +45,14 @@
 	<% current_user.mentees.each do |mentee| %>
 <div class="col-sm-6 current-mentors">
 <div class="current mentorships">
-			<button class="btn btn-default" id="end-mentorship">End Mentorship</button>
+			<form action="/mentors/<%= current_user.id %>/mentorships/<%= mentee.id %>" method="POST" class="btn btn-default" id="end-mentorship">
+        <input type="hidden" value="<%= mentee.id %>" name="mentorship">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="Submit"
+            value="End Mentorship"
+            style="border:none; background-color:rgba(0,0,0,0); margin:0; padding:0;"
+            onClick="return confirm('Are you sure you want to end this mentorship?');">
+			</form>
 			<h3><%= mentee.mentee.first_name %> <%= mentee.mentee.last_name %></h3>
 			<p>"<%= mentee.mentee.fun_fact %>"</p>
 			<p class="italic small">Mentee since <%= mentee.created_at.strftime('%B %d, %Y') %></p>
