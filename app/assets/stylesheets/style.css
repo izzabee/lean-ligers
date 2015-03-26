@@ -223,8 +223,11 @@ textarea {
 	margin-top: 40px;
 }
 
-.back {
+
+.back, .delete-account {
 	margin-bottom: 24px;
+	margin-right: 12px;
+	float: left;
 }
 
 .newUser input {
