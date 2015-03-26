@@ -32,6 +32,18 @@
     <div class="row">
       <h1>New Mentors</h1>
 
+      <% @mentors.where(id: 1).each do |mentor| %>
+        <div class="col-sm-4 mentor-web">
+          <% if mentor.avatar.exists? %>
+            <a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
+          <% else %>
+            <a href="<%= mentor_path(mentor.id) %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
+          <% end %>
+          <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
+          <h3><%= mentor.industry %></h3>
+        </div>
+      <% end %>
+
       <% @mentors.where(id: 2).each do |mentor| %>
         <div class="col-sm-4 mentor-pm">
           <% if mentor.avatar.exists? %>
@@ -46,18 +58,6 @@
 
       <% @mentors.where(id: 3).each do |mentor| %>
         <div class="col-sm-4 mentor-ux">
-          <% if mentor.avatar.exists? %>
-            <a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
-          <% else %>
-            <a href="<%= mentor_path(mentor.id) %>" class="mentor-icon"><i class="fa fa-user fa-2x"></i><a>
-          <% end %>
-          <h2><%= link_to mentor.first_name, mentor_path(mentor.id) %></h2>
-          <h3><%= mentor.industry %></h3>
-        </div>
-      <% end %>
-
-      <% @mentors.where(id: 1).each do |mentor| %>
-        <div class="col-sm-4 mentor-web">
           <% if mentor.avatar.exists? %>
     				<a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
     			<% else %>
