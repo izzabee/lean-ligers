@@ -32,7 +32,7 @@
     <div class="row">
       <h1>New Mentors</h1>
 
-      <% @mentors.where(id: 8).each do |mentor| %>
+      <% @mentors.where(id: 1).each do |mentor| %>
         <div class="col-sm-4 mentor-pm">
           <% if mentor.avatar.exists? %>
             <a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
@@ -44,7 +44,7 @@
         </div>
       <% end %>
 
-      <% @mentors.where(id: 9).each do |mentor| %>
+      <% @mentors.where(id: 2).each do |mentor| %>
         <div class="col-sm-4 mentor-ux">
           <% if mentor.avatar.exists? %>
             <a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
@@ -56,7 +56,7 @@
         </div>
       <% end %>
 
-      <% @mentors.where(id: 7).each do |mentor| %>
+      <% @mentors.where(id: 3).each do |mentor| %>
         <div class="col-sm-4 mentor-web">
           <% if mentor.avatar.exists? %>
     				<a href="/mentors/<%= mentor.id %>" class="directory-image" style="background: url(<%= mentor.avatar.url(:medium) %>) no-repeat center center; background-size: cover;"></a>
